@@ -7,60 +7,84 @@
 <title>Английские слова</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
-:root{--bg:#f3f4fb;--text:#1b1f2e;--hint:#7c8196;--card:#fff;--grad:linear-gradient(135deg,#6366f1,#8b5cf6 50%,#ec4899);--ok:#16a34a;--bad:#dc2626;--shadow:0 6px 24px rgba(79,70,229,.12);--r:22px}
+:root{--bg:#f3f4fb;--text:#1b1f2e;--hint:#6b7189;--card:#fff;--grad:linear-gradient(135deg,#6366f1,#8b5cf6 50%,#ec4899);--ok:#16a34a;--bad:#dc2626;--shadow:0 6px 24px rgba(79,70,229,.12);--r:22px}
 @media (prefers-color-scheme:dark){:root{--bg:#0f1220;--text:#eef0f8;--hint:#9aa0b8;--card:#1a1f33}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-body{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));min-height:100vh}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:16px}
+body{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px));min-height:100vh}
 main{max-width:600px;margin:0 auto;padding:18px 16px}
-h1{font-size:24px;margin:6px 0 4px}h2{font-size:17px;margin:16px 0 10px}
-.sub{color:var(--hint);font-size:14px;margin:0 0 14px}
+h1{font-size:25px;margin:6px 0 6px}h2{font-size:18px;margin:16px 0 10px}
+.sub{color:var(--hint);font-size:15px;margin:0 0 14px;line-height:1.45}
 .hero{background:var(--grad);color:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
-.hero .big{font-size:34px;font-weight:800}.hero .label{opacity:.85;font-size:13px}
+.hero .big{font-size:34px;font-weight:800}.hero .label{opacity:.9;font-size:14px}
 .card{background:var(--card);border-radius:var(--r);padding:16px;margin:12px 0;box-shadow:var(--shadow)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.tile{background:var(--card);border-radius:var(--r);padding:18px 12px;text-align:center;color:var(--text);box-shadow:var(--shadow);font-weight:600;text-decoration:none}
-.tile .ico{display:block;font-size:30px;margin-bottom:6px}
-.btn{display:block;width:100%;border:0;border-radius:16px;padding:14px 16px;font:inherit;font-size:16px;font-weight:600;background:var(--grad);color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(99,102,241,.3);text-align:center;text-decoration:none;margin:8px 0}
-.btn.ghost{background:var(--card);color:var(--text);box-shadow:none;border:1px solid rgba(127,127,127,.25)}
+.btn{display:block;width:100%;border:0;border-radius:16px;padding:15px 16px;font:inherit;font-size:17px;font-weight:600;background:var(--grad);color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(99,102,241,.3);text-align:center;text-decoration:none;margin:9px 0}
+.btn.ghost{background:var(--card);color:var(--text);box-shadow:none;border:1px solid rgba(127,127,127,.3)}
 .btn.danger{background:linear-gradient(135deg,#ef4444,#f97316);box-shadow:none}
-.btn.small{display:inline-block;width:auto;padding:8px 14px;font-size:14px;margin:0}
+.btn.small{display:inline-block;width:auto;padding:9px 14px;font-size:15px;margin:0}
 .btn:disabled{opacity:.45;box-shadow:none;cursor:default}
-input,select,textarea{font:inherit;width:100%;padding:13px 14px;border-radius:14px;border:1px solid rgba(127,127,127,.25);background:var(--bg);color:var(--text);margin:6px 0;outline:none}
+.btn:active{transform:scale(.98)}
+input,select,textarea{font:inherit;font-size:16px;width:100%;padding:13px 14px;border-radius:14px;border:1px solid rgba(127,127,127,.3);background:var(--bg);color:var(--text);margin:6px 0;outline:none}
+input:focus,select:focus,textarea:focus{border-color:#6366f1}
 textarea{min-height:110px}
-label.check{display:flex;gap:10px;align-items:center;margin:10px 0;font-size:15px}
-label.check input{width:20px;height:20px;margin:0}
+label.check{display:flex;gap:10px;align-items:center;margin:12px 0;font-size:16px}
+label.check input{width:22px;height:22px;margin:0}
 .row{display:flex;gap:10px;align-items:center}.row>*{flex:1}.row>.auto{flex:0 0 auto}
-.li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(127,127,127,.14)}
-.li:last-child{border-bottom:0}.li small{color:var(--hint);display:block}
-.stat{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(127,127,127,.12)}
+.li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(127,127,127,.15)}
+.li:last-child{border-bottom:0}.li small{color:var(--hint);display:block;font-size:13px}
+.stat{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(127,127,127,.14)}
 .stat:last-child{border-bottom:0}
-.pill{display:inline-block;padding:3px 10px;border-radius:12px;background:rgba(99,102,241,.14);color:#6366f1;font-size:13px;font-weight:600}
+.pill{display:inline-block;padding:4px 11px;border-radius:12px;background:rgba(99,102,241,.16);color:#6366f1;font-size:14px;font-weight:600}
 .pos{color:var(--ok);font-weight:700}.neg{color:var(--bad);font-weight:700}
 .empty{text-align:center;padding:28px 12px;color:var(--hint)}.empty .ico{font-size:44px;display:block;margin-bottom:8px}
 .bar{height:10px;border-radius:6px;background:rgba(127,127,127,.2);overflow:hidden;margin:10px 0}
 .bar>div{height:100%;background:var(--grad);transition:width .4s}
-.stage{text-align:center;padding:18px 12px 16px}
-.status{font-size:15px;color:var(--hint);min-height:22px;margin-top:10px}
-.mic-wrap{position:relative;width:132px;height:132px;margin:14px auto}
+/* тренировка */
+.ring{display:block;margin:4px auto 6px}
+.ring-bg{stroke:rgba(127,127,127,.2)}
+.stage{text-align:center;padding:16px 12px 18px}
+.steps{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:6px 0 4px;font-size:13px}
+.steps span{padding:5px 10px;border-radius:12px;background:rgba(127,127,127,.12);color:var(--hint)}
+.steps span.on{background:var(--grad);color:#fff;font-weight:600}
+.status{font-size:16px;color:var(--text);min-height:24px;margin:12px 0 4px;font-weight:500}
+.mic-wrap{position:relative;width:132px;height:132px;margin:10px auto}
 .mic{position:relative;width:132px;height:132px;border-radius:50%;border:0;background:var(--grad);color:#fff;font-size:46px;cursor:pointer;box-shadow:0 10px 30px rgba(99,102,241,.35);z-index:1}
-.mic:disabled{opacity:.45;cursor:default}
+.mic:disabled{opacity:.45}
 .mic.listening{animation:breathe 1.1s ease-in-out infinite}
 .pulse{position:absolute;inset:0;border-radius:50%;border:3px solid #6366f1;opacity:0}
 .mic.listening~.pulse{animation:pulse 1.6s ease-out infinite}.mic.listening~.pulse.p2{animation-delay:.8s}
 @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 @keyframes pulse{from{transform:scale(1);opacity:.6}to{transform:scale(1.5);opacity:0}}
-.heard{margin:12px 0 4px;padding:14px;border-radius:16px;background:rgba(99,102,241,.08);min-height:56px;font-size:18px;font-weight:600;text-align:left}
-.heard .lbl{display:block;font-size:12px;color:var(--hint);font-weight:500;margin-bottom:4px}
-.verdict{border-radius:var(--r);padding:18px;margin-top:12px;color:#fff;text-align:center;box-shadow:var(--shadow)}
+.heard{margin:12px 0 4px;padding:14px;border-radius:16px;background:rgba(99,102,241,.1);min-height:58px;font-size:18px;font-weight:600;text-align:left}
+.heard .lbl{display:block;font-size:13px;color:var(--hint);font-weight:500;margin-bottom:4px}
+.hintbox{margin:8px 0;padding:12px;border-radius:14px;background:rgba(245,158,11,.14);font-size:16px;text-align:left}
+.verdict{border-radius:var(--r);padding:18px;margin-top:12px;color:#fff;text-align:center}
 .verdict.ok{background:linear-gradient(135deg,#16a34a,#22c55e)}.verdict.bad{background:linear-gradient(135deg,#dc2626,#f97316)}
-.verdict .head{font-size:22px;font-weight:800}.verdict .tr{font-size:17px;margin-top:8px}.verdict .en{opacity:.9;font-size:14px}
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.verdict .head{font-size:22px;font-weight:800}.verdict .tr{font-size:19px;margin-top:8px;font-weight:600}.verdict .en{opacity:.92;font-size:15px;margin-top:4px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.speed{display:flex;align-items:center;gap:10px;margin:10px 0 2px;font-size:14px;color:var(--hint)}
+.speed input{margin:0;padding:0;width:100%}
+.speed b{min-width:44px;text-align:right;color:var(--text)}
+/* слова */
+.ugroup{margin-bottom:20px}
+.uhead{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:16px;padding:6px 2px 6px;border-bottom:2px solid rgba(99,102,241,.35);margin-bottom:4px}
+.wrow{padding:11px 2px;border-bottom:1px solid rgba(127,127,127,.12)}
+.wrow:last-child{border-bottom:0}
+.wrow small{color:var(--hint);font-size:13px}
+/* обучение */
+.dots{display:flex;justify-content:center;gap:8px;margin:6px 0 14px}
+.dots i{width:9px;height:9px;border-radius:50%;background:rgba(127,127,127,.3)}
+.dots i.on{background:#6366f1;width:24px;border-radius:6px}
+.howto{display:flex;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(127,127,127,.12)}
+.howto:last-child{border-bottom:0}
+.howto .ic{font-size:30px;width:44px;text-align:center}
+.howto b{display:block;font-size:16px}.howto span{color:var(--hint);font-size:14px}
+/* нижнее меню */
 .tabbar{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;padding:8px 6px calc(10px + env(safe-area-inset-bottom,0px));background:var(--card);box-shadow:0 -4px 20px rgba(0,0,0,.08);z-index:10}
-.tabbar a{flex:1;text-align:center;font-size:11px;color:var(--hint);text-decoration:none;padding:4px 0;border-radius:12px}
-.tabbar a span{display:block;font-size:20px;margin-bottom:2px}
+.tabbar a{flex:1;text-align:center;font-size:12px;color:var(--hint);text-decoration:none;padding:4px 0;border-radius:12px}
+.tabbar a span{display:block;font-size:21px;margin-bottom:2px}
 .tabbar a.active{color:#6366f1;font-weight:700}
-.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:#111827;color:#fff;padding:12px 18px;border-radius:14px;font-size:14px;z-index:20;max-width:90%}
+.toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);background:#111827;color:#fff;padding:12px 18px;border-radius:14px;font-size:15px;z-index:20;max-width:90%;text-align:center}
 </style>
 </head>
 <body>
@@ -77,391 +101,486 @@ label.check input{width:20px;height:20px;margin:0}
 <script>
 window.addEventListener("error", function(e){
   var box = document.getElementById("app");
-  if (box) box.innerHTML = '<div style="padding:20px;font-family:sans-serif"><b>Ошибка в коде страницы:</b><br>' + String(e.message) + '<br><small>' + String(e.lineno || "") + '</small></div>';
+  if (box) box.innerHTML = '<div style="padding:20px"><b>Ошибка в коде страницы:</b><br>' + String(e.message) + '<br><small>' + String(e.lineno || "") + '</small></div>';
 });
-// ===== Telegram: открыть на весь экран (если страница открыта внутри Telegram) =====
 (function(){
-  try {
-    var tg = window.Telegram && window.Telegram.WebApp;
-    if (!tg) return;
-    tg.ready();
-    tg.expand();
-    if (typeof tg.requestFullscreen === "function") { try { tg.requestFullscreen(); } catch (_) {} }
-  } catch (_) {}
+  try { var tg = window.Telegram && window.Telegram.WebApp; if (!tg) return; tg.ready(); tg.expand();
+    if (typeof tg.requestFullscreen === "function") { try { tg.requestFullscreen(); } catch (_) {} } } catch (_) {}
 })();
+
 // ===== Данные =====
-const BUNDLED = [{"u":"1","p":"1","en":"ability","ru":"способность"},{"u":"1","p":"1","en":"able","ru":"способный"},{"u":"1","p":"1","en":"achievement","ru":"достижение"},{"u":"1","p":"1","en":"adventure","ru":"приключение"},{"u":"1","p":"1","en":"bargain","ru":"выгодная покупка; торговаться"},{"u":"1","p":"1","en":"behave","ru":"вести себя"},{"u":"1","p":"1","en":"charity","ru":"благотворительность"},{"u":"1","p":"1","en":"choice","ru":"выбор"},{"u":"1","p":"1","en":"communication","ru":"общение; коммуникация"},{"u":"1","p":"1","en":"connect","ru":"связывать; соединять"},{"u":"1","p":"1","en":"consumer","ru":"потребитель"},{"u":"1","p":"1","en":"convinced","ru":"убеждённый; уверенный"},{"u":"1","p":"1","en":"currently","ru":"в настоящее время"},{"u":"1","p":"1","en":"deal","ru":"сделка; иметь дело"},{"u":"1","p":"1","en":"deeply","ru":"глубоко"},{"u":"1","p":"1","en":"definition","ru":"определение"},{"u":"1","p":"1","en":"develop","ru":"развивать(ся)"},{"u":"1","p":"1","en":"digital age","ru":"цифровой век"},{"u":"1","p":"1","en":"effect","ru":"эффект; влияние"},{"u":"1","p":"1","en":"expression","ru":"выражение"},{"u":"1","p":"1","en":"fall out (with someone)","ru":"поссориться (с кем-либо)"},{"u":"1","p":"1","en":"friendship","ru":"дружба"},{"u":"1","p":"1","en":"get on (well with someone)","ru":"ладить (с кем-либо)"},{"u":"1","p":"1","en":"govern","ru":"управлять"},{"u":"1","p":"1","en":"government","ru":"правительство"},{"u":"1","p":"1","en":"guilt-free","ru":"без чувства вины"},{"u":"1","p":"1","en":"half-price","ru":"за полцены"},{"u":"1","p":"1","en":"harmful","ru":"вредный"},{"u":"1","p":"1","en":"come face-to-face with","ru":"столкнуться лицом к лицу с"},{"u":"1","p":"1","en":"have a lot in common","ru":"иметь много общего"},{"u":"1","p":"2","en":"help (someone) out","ru":"помогать (кому-либо), выручать"},{"u":"1","p":"2","en":"improvement","ru":"улучшение"},{"u":"1","p":"2","en":"in touch (with someone)","ru":"на связи (с кем-либо)"},{"u":"1","p":"2","en":"injury","ru":"травма"},{"u":"1","p":"2","en":"item","ru":"предмет; пункт"},{"u":"1","p":"2","en":"judgement","ru":"суждение; решение"},{"u":"1","p":"2","en":"lately","ru":"в последнее время"},{"u":"1","p":"2","en":"leisure time","ru":"свободное время"},{"u":"1","p":"2","en":"media","ru":"СМИ"},{"u":"1","p":"2","en":"meetup","ru":"встреча"},{"u":"1","p":"2","en":"membership","ru":"членство"},{"u":"1","p":"2","en":"movement","ru":"движение"},{"u":"1","p":"2","en":"occasional","ru":"случайный; время от времени"},{"u":"1","p":"2","en":"credit","ru":"кредит"},{"u":"1","p":"2","en":"on credit","ru":"в кредит"},{"u":"1","p":"2","en":"opportunity","ru":"возможность"},{"u":"1","p":"2","en":"persuade","ru":"убеждать"},{"u":"1","p":"2","en":"process","ru":"процесс; обрабатывать"},{"u":"1","p":"2","en":"prove","ru":"доказывать"},{"u":"1","p":"2","en":"purchase","ru":"покупка"},{"u":"1","p":"2","en":"queue","ru":"очередь; стоять в очереди"},{"u":"1","p":"2","en":"resources","ru":"ресурсы"},{"u":"1","p":"2","en":"reunite","ru":"воссоединять(ся)"},{"u":"1","p":"2","en":"run-up","ru":"подготовка; период перед чем-либо"},{"u":"1","p":"2","en":"secure","ru":"надёжный; обеспечивать"},{"u":"1","p":"2","en":"security","ru":"безопасность"},{"u":"1","p":"2","en":"smartphone","ru":"смартфон"},{"u":"1","p":"2","en":"socialize","ru":"общаться"},{"u":"1","p":"2","en":"special offer","ru":"специальное предложение"},{"u":"1","p":"2","en":"transport","ru":"транспорт; перевозить"},{"u":"1","p":"2","en":"trend","ru":"тенденция"},{"u":"1","p":"2","en":"trust","ru":"доверие; доверять"},{"u":"1","p":"2","en":"admit","ru":"признавать"},{"u":"2","p":"1","en":"announce","ru":"объявлять"},{"u":"2","p":"1","en":"appear","ru":"появляться; казаться"},{"u":"2","p":"1","en":"attempt","ru":"попытка; пытаться"},{"u":"2","p":"1","en":"be stuck","ru":"застрять"},{"u":"2","p":"1","en":"believe","ru":"верить"},{"u":"2","p":"1","en":"breath","ru":"дыхание"},{"u":"2","p":"1","en":"cable car","ru":"канатная дорога"},{"u":"2","p":"1","en":"charge","ru":"взимать плату; обвинять"},{"u":"2","p":"1","en":"circulate","ru":"распространяться; циркулировать"},{"u":"2","p":"1","en":"claim","ru":"утверждать; заявлять"},{"u":"2","p":"1","en":"coincidence","ru":"совпадение"},{"u":"2","p":"1","en":"conclusion","ru":"вывод"},{"u":"2","p":"1","en":"consecutively","ru":"подряд"},{"u":"2","p":"1","en":"create","ru":"создавать"},{"u":"2","p":"1","en":"curiously","ru":"любопытно; странно"},{"u":"2","p":"1","en":"disappear","ru":"исчезать"},{"u":"2","p":"1","en":"escape","ru":"сбежать; избежать"},{"u":"2","p":"1","en":"evidence","ru":"доказательство"},{"u":"2","p":"1","en":"expect","ru":"ожидать"},{"u":"2","p":"1","en":"fake","ru":"подделка; поддельный"},{"u":"2","p":"1","en":"float","ru":"плавать; парить"},{"u":"2","p":"1","en":"fortunately","ru":"к счастью"},{"u":"2","p":"1","en":"free","ru":"бесплатный; освобождать"},{"u":"2","p":"1","en":"hire","ru":"нанимать; арендовать"},{"u":"2","p":"1","en":"hoax","ru":"розыгрыш; мистификация"},{"u":"2","p":"1","en":"inform","ru":"информировать"},{"u":"2","p":"1","en":"interestingly","ru":"интересно"},{"u":"2","p":"2","en":"interview","ru":"интервью"},{"u":"2","p":"2","en":"invent","ru":"изобретать"},{"u":"2","p":"2","en":"jaw","ru":"челюсть"},{"u":"2","p":"2","en":"keen","ru":"увлечённый; очень желающий"},{"u":"2","p":"2","en":"keep quiet","ru":"молчать"},{"u":"2","p":"2","en":"knock into","ru":"врезаться в"},{"u":"2","p":"2","en":"live","ru":"жить; живой"},{"u":"2","p":"2","en":"lose contact","ru":"потерять связь"},{"u":"2","p":"2","en":"luckily","ru":"к счастью"},{"u":"2","p":"2","en":"medical","ru":"медицинский"},{"u":"2","p":"2","en":"mention","ru":"упоминать"},{"u":"2","p":"2","en":"orchestra","ru":"оркестр"},{"u":"2","p":"2","en":"ordinary","ru":"обычный"},{"u":"2","p":"2","en":"personally","ru":"лично"},{"u":"2","p":"2","en":"realize","ru":"осознавать"},{"u":"2","p":"2","en":"recognize","ru":"узнавать"},{"u":"2","p":"2","en":"remarkably","ru":"удивительно"},{"u":"2","p":"2","en":"remember","ru":"помнить"},{"u":"2","p":"2","en":"remind","ru":"напоминать"},{"u":"2","p":"2","en":"report","ru":"сообщать; сообщение"},{"u":"2","p":"2","en":"responsible","ru":"ответственный"},{"u":"2","p":"2","en":"sadly","ru":"к сожалению"},{"u":"2","p":"2","en":"scream","ru":"кричать"},{"u":"2","p":"2","en":"screen","ru":"экран"},{"u":"2","p":"2","en":"sharply","ru":"резко"},{"u":"2","p":"2","en":"skull","ru":"череп"},{"u":"2","p":"2","en":"sour","ru":"кислый"},{"u":"2","p":"2","en":"stream","ru":"ручей; поток"},{"u":"2","p":"2","en":"surface","ru":"поверхность"},{"u":"2","p":"2","en":"surprisingly","ru":"удивительно"},{"u":"2","p":"2","en":"survive","ru":"выживать"},{"u":"2","p":"2","en":"system","ru":"система"},{"u":"2","p":"2","en":"tell","ru":"рассказывать; говорить"},{"u":"2","p":"3","en":"track","ru":"след; выслеживать"},{"u":"2","p":"3","en":"turn around","ru":"поворачивать назад; оборачиваться"},{"u":"2","p":"3","en":"underwater","ru":"под водой"},{"u":"2","p":"3","en":"unfortunately","ru":"к сожалению"},{"u":"2","p":"3","en":"waste","ru":"тратить впустую; отходы"},{"u":"2","p":"3","en":"watermelon","ru":"арбуз"},{"u":"2","p":"3","en":"weak","ru":"слабый"},{"u":"2","p":"3","en":"whisper","ru":"шептать"},{"u":"2","p":"3","en":"wonder","ru":"удивляться; чудо"},{"u":"3","p":"1","en":"admire","ru":"восхищаться"},{"u":"3","p":"1","en":"attention","ru":"внимание"},{"u":"3","p":"1","en":"beat","ru":"побеждать; бить"},{"u":"3","p":"1","en":"bleach","ru":"отбеливатель; отбеливать"},{"u":"3","p":"1","en":"blood vessel","ru":"кровеносный сосуд"},{"u":"3","p":"1","en":"computerized","ru":"компьютеризированный"},{"u":"3","p":"1","en":"confidence","ru":"уверенность"},{"u":"3","p":"1","en":"contest","ru":"соревнование; конкурс"},{"u":"3","p":"1","en":"crack","ru":"трещина; щёлкать"},{"u":"3","p":"1","en":"damage","ru":"ущерб; повреждать"},{"u":"3","p":"1","en":"deadline","ru":"крайний срок"},{"u":"3","p":"1","en":"deal with","ru":"справляться с; иметь дело с"},{"u":"3","p":"1","en":"decision","ru":"решение"},{"u":"3","p":"1","en":"device","ru":"устройство"},{"u":"3","p":"1","en":"easy-going","ru":"лёгкий; покладистый"},{"u":"3","p":"1","en":"English-speaking","ru":"англоговорящий"},{"u":"3","p":"1","en":"experiment","ru":"эксперимент"},{"u":"3","p":"1","en":"expert","ru":"эксперт"},{"u":"3","p":"1","en":"fail","ru":"провалиться; проваливаться"},{"u":"3","p":"1","en":"five-star","ru":"пятизвёздочный"},{"u":"3","p":"1","en":"flip","ru":"переворачивать; подбрасывать"},{"u":"3","p":"1","en":"full-time","ru":"полный рабочий день"},{"u":"3","p":"1","en":"give in","ru":"сдаваться; уступать"},{"u":"3","p":"1","en":"good-looking","ru":"красивый"},{"u":"3","p":"1","en":"hobby","ru":"хобби"},{"u":"3","p":"1","en":"instructor","ru":"инструктор"},{"u":"3","p":"1","en":"intelligence","ru":"интеллект"},{"u":"3","p":"1","en":"leader","ru":"лидер"},{"u":"3","p":"1","en":"left-handed","ru":"левша; левшовый"},{"u":"3","p":"1","en":"make an effort","ru":"стараться; прилагать усилия"},{"u":"3","p":"1","en":"manage","ru":"справляться; управлять"},{"u":"3","p":"2","en":"marshmallow","ru":"маршмеллоу; зефир"},{"u":"3","p":"2","en":"measure","ru":"измерять"},{"u":"3","p":"2","en":"multitask","ru":"заниматься несколькими делами сразу"},{"u":"3","p":"2","en":"observe","ru":"наблюдать"},{"u":"3","p":"2","en":"on impulse","ru":"под влиянием момента"},{"u":"3","p":"2","en":"overcook","ru":"пересушить; переварить"},{"u":"3","p":"2","en":"overpriced","ru":"завышенный в цене"},{"u":"3","p":"2","en":"panel","ru":"группа экспертов; панель"},{"u":"3","p":"2","en":"participant","ru":"участник"},{"u":"3","p":"2","en":"passion","ru":"страсть"},{"u":"3","p":"2","en":"patient","ru":"терпеливый; пациент"},{"u":"3","p":"2","en":"pleasant","ru":"приятный"},{"u":"3","p":"2","en":"polite","ru":"вежливый"},{"u":"3","p":"2","en":"precise","ru":"точный"},{"u":"3","p":"2","en":"professional","ru":"профессиональный; профессионал"},{"u":"3","p":"2","en":"resist","ru":"сопротивляться"},{"u":"3","p":"2","en":"respect","ru":"уважать; уважение"},{"u":"3","p":"2","en":"responsibility","ru":"ответственность"},{"u":"3","p":"2","en":"result","ru":"результат"},{"u":"3","p":"2","en":"reward","ru":"награда; вознаграждать"},{"u":"3","p":"2","en":"rise to the challenge","ru":"справиться с вызовом"},{"u":"3","p":"2","en":"rub","ru":"тереть"},{"u":"3","p":"2","en":"sandpaper","ru":"наждачная бумага"},{"u":"3","p":"2","en":"schedule","ru":"расписание"},{"u":"3","p":"2","en":"scientifically proven","ru":"научно доказанный"},{"u":"3","p":"2","en":"second-hand","ru":"подержанный"},{"u":"3","p":"2","en":"set goals","ru":"ставить цели"},{"u":"3","p":"2","en":"shocked","ru":"шокированный"},{"u":"3","p":"2","en":"short-sleeved","ru":"с коротким рукавом"},{"u":"3","p":"2","en":"spare","ru":"лишний; запасной"},{"u":"3","p":"2","en":"stress","ru":"стресс; подчёркивать"},{"u":"3","p":"2","en":"stressful","ru":"стрессовый"},{"u":"3","p":"2","en":"sweat","ru":"потеть; пот"},{"u":"3","p":"2","en":"symptom","ru":"симптом"},{"u":"3","p":"3","en":"take part in (something)","ru":"участвовать (в чём-либо)"},{"u":"3","p":"3","en":"take responsibility","ru":"брать на себя ответственность"},{"u":"3","p":"3","en":"talk","ru":"разговор; говорить"},{"u":"3","p":"3","en":"technique","ru":"техника; приём"},{"u":"3","p":"3","en":"temptation","ru":"соблазн"},{"u":"3","p":"3","en":"think ahead","ru":"думать наперёд"},{"u":"3","p":"3","en":"turn up","ru":"появиться; прийти"},{"u":"3","p":"3","en":"van","ru":"фургон"},{"u":"3","p":"3","en":"work hard","ru":"усердно работать"},{"u":"3","p":"3","en":"work well under pressure","ru":"хорошо работать в стрессовой обстановке"},{"u":"4","p":"1","en":"all over the place","ru":"повсюду"},{"u":"4","p":"1","en":"artificial","ru":"искусственный"},{"u":"4","p":"1","en":"aspiring","ru":"начинающий; стремящийся стать"},{"u":"4","p":"1","en":"canal","ru":"канал"},{"u":"4","p":"1","en":"communal","ru":"общий; общественный"},{"u":"4","p":"1","en":"chemical","ru":"химическое вещество; химический"},{"u":"4","p":"1","en":"cliff","ru":"утёс; скала"},{"u":"4","p":"1","en":"cubicle","ru":"кабинка"},{"u":"4","p":"1","en":"culture","ru":"культура"},{"u":"4","p":"1","en":"feel at home","ru":"чувствовать себя как дома"},{"u":"4","p":"1","en":"ferry service","ru":"паромное сообщение"},{"u":"4","p":"1","en":"get rid of (something)","ru":"избавиться (от чего-либо)"},{"u":"4","p":"1","en":"give off","ru":"выделять; испускать"},{"u":"4","p":"1","en":"globalization","ru":"глобализация"},{"u":"4","p":"1","en":"greenery","ru":"зелень; растительность"},{"u":"4","p":"1","en":"historic","ru":"исторический"},{"u":"4","p":"1","en":"hoarder","ru":"человек, который всё копит"},{"u":"4","p":"1","en":"inhabitant","ru":"житель"},{"u":"4","p":"1","en":"inland","ru":"во внутренних районах; внутренний"},{"u":"4","p":"1","en":"know (someone/something) like the back of your hand","ru":"знать как свои пять пальцев"},{"u":"4","p":"1","en":"landscape","ru":"ландшафт; пейзаж"},{"u":"4","p":"1","en":"luxury","ru":"роскошь"},{"u":"4","p":"1","en":"mainland","ru":"материк"},{"u":"4","p":"1","en":"make room","ru":"освободить место"},{"u":"4","p":"1","en":"make yourself at home","ru":"чувствуйте себя как дома"},{"u":"4","p":"1","en":"miles from anywhere","ru":"глушь; далеко от всего"},{"u":"4","p":"1","en":"mixture","ru":"смесь"},{"u":"4","p":"1","en":"neat and tidy","ru":"аккуратный; опрятный"},{"u":"4","p":"1","en":"ocean","ru":"океан"},{"u":"4","p":"2","en":"packed in like sardines","ru":"битком набитый"},{"u":"4","p":"2","en":"peak","ru":"пик; вершина"},{"u":"4","p":"2","en":"permanent","ru":"постоянный"},{"u":"4","p":"2","en":"pool","ru":"бассейн; пруд"},{"u":"4","p":"2","en":"reed","ru":"тростник"},{"u":"4","p":"2","en":"rock","ru":"скала; камень"},{"u":"4","p":"2","en":"run out of (something)","ru":"закончиться (у чего-либо)"},{"u":"4","p":"2","en":"scenery","ru":"пейзаж; природа"},{"u":"4","p":"2","en":"season","ru":"сезон"},{"u":"4","p":"2","en":"set off","ru":"отправляться"},{"u":"4","p":"2","en":"settle down","ru":"обосноваться; устроиться"},{"u":"4","p":"2","en":"solar power","ru":"солнечная энергия"},{"u":"4","p":"2","en":"steep","ru":"крутой"},{"u":"4","p":"2","en":"suburb","ru":"пригород"},{"u":"4","p":"2","en":"sunset","ru":"закат"},{"u":"4","p":"2","en":"sunshine","ru":"солнечный свет"},{"u":"4","p":"2","en":"trail","ru":"тропа"},{"u":"4","p":"2","en":"valley","ru":"долина"},{"u":"4","p":"2","en":"wave","ru":"волна; махать"},{"u":"5","p":"1","en":"absolutely","ru":"абсолютно"},{"u":"5","p":"1","en":"accessible","ru":"доступный"},{"u":"5","p":"1","en":"action film","ru":"боевик"},{"u":"5","p":"1","en":"action hero","ru":"герой боевика"},{"u":"5","p":"1","en":"addicted","ru":"зависимый; фанатеющий"},{"u":"5","p":"1","en":"amusing","ru":"забавный"},{"u":"5","p":"1","en":"animated","ru":"мультипликационный; оживлённый"},{"u":"5","p":"1","en":"app","ru":"приложение"},{"u":"5","p":"1","en":"appeal","ru":"привлекать; привлекательность"},{"u":"5","p":"1","en":"astonishing","ru":"поразительный"},{"u":"5","p":"1","en":"atmosphere","ru":"атмосфера"},{"u":"5","p":"1","en":"authentic","ru":"подлинный"},{"u":"5","p":"1","en":"banker","ru":"банкир"},{"u":"5","p":"1","en":"be based on","ru":"основываться на"},{"u":"5","p":"1","en":"brilliant","ru":"блестящий"},{"u":"5","p":"1","en":"cast","ru":"актёрский состав; бросать"},{"u":"5","p":"1","en":"character","ru":"персонаж; характер"},{"u":"5","p":"1","en":"chat","ru":"болтать; разговор"},{"u":"5","p":"1","en":"classic","ru":"классика; классический"},{"u":"5","p":"1","en":"clip","ru":"отрывок; клип"},{"u":"5","p":"1","en":"dash","ru":"бросаться; мчаться; тире"},{"u":"5","p":"1","en":"dear","ru":"дорогой"},{"u":"5","p":"1","en":"despite","ru":"несмотря на"},{"u":"5","p":"1","en":"difficult","ru":"трудный"},{"u":"5","p":"1","en":"disappointing","ru":"разочаровывающий"},{"u":"5","p":"1","en":"disturbing","ru":"тревожащий"},{"u":"5","p":"1","en":"documentary","ru":"документальный фильм"},{"u":"5","p":"1","en":"dreadful","ru":"ужасный"},{"u":"5","p":"1","en":"entertaining","ru":"развлекательный"},{"u":"5","p":"1","en":"essentially","ru":"по сути"},{"u":"5","p":"1","en":"exhibition","ru":"выставка"},{"u":"5","p":"2","en":"falsely","ru":"ложно"},{"u":"5","p":"2","en":"fan","ru":"фанат"},{"u":"5","p":"2","en":"fantasize","ru":"фантазировать"},{"u":"5","p":"2","en":"genre","ru":"жанр"},{"u":"5","p":"2","en":"grow apart","ru":"отдаляться друг от друга"},{"u":"5","p":"2","en":"hand-held","ru":"ручной; портативный"},{"u":"5","p":"2","en":"harmless","ru":"безвредный"},{"u":"5","p":"2","en":"hope","ru":"надежда; надеяться"},{"u":"5","p":"2","en":"incredibly","ru":"невероятно"},{"u":"5","p":"2","en":"infuriating","ru":"бесящий"},{"u":"5","p":"2","en":"interact","ru":"взаимодействовать"},{"u":"5","p":"2","en":"irritation","ru":"раздражение"},{"u":"5","p":"2","en":"login","ru":"вход в систему; войти"},{"u":"5","p":"2","en":"magically","ru":"волшебным образом"},{"u":"5","p":"2","en":"middle class","ru":"средний класс"},{"u":"5","p":"2","en":"military","ru":"военный"},{"u":"5","p":"2","en":"modern-day","ru":"современный"},{"u":"5","p":"2","en":"moving","ru":"трогательный; движущийся"},{"u":"5","p":"2","en":"mug","ru":"кружка; ограбить"},{"u":"5","p":"2","en":"novel","ru":"роман"},{"u":"5","p":"2","en":"on balance","ru":"в целом; по здравом размышлении"},{"u":"5","p":"2","en":"original","ru":"оригинальный; оригинал"},{"u":"5","p":"2","en":"performance","ru":"выступление; представление"},{"u":"5","p":"2","en":"plot","ru":"сюжет"},{"u":"5","p":"2","en":"post","ru":"публиковать; пост"},{"u":"5","p":"2","en":"pothole","ru":"выбоина"},{"u":"5","p":"2","en":"predictable","ru":"предсказуемый"},{"u":"5","p":"2","en":"prisoner","ru":"заключённый"},{"u":"5","p":"2","en":"recommend","ru":"рекомендовать"},{"u":"5","p":"2","en":"release","ru":"выпускать; выпуск"},{"u":"5","p":"2","en":"remake","ru":"ремейк"},{"u":"5","p":"2","en":"result in","ru":"привести к"},{"u":"5","p":"3","en":"romcom","ru":"романтическая комедия"},{"u":"5","p":"3","en":"salsa","ru":"сальса"},{"u":"5","p":"3","en":"scene","ru":"сцена; эпизод"},{"u":"5","p":"3","en":"set out","ru":"отправиться; изложить"},{"u":"5","p":"3","en":"showcase","ru":"показывать; витрина"},{"u":"5","p":"3","en":"silly","ru":"глупый"},{"u":"5","p":"3","en":"skyscraper","ru":"небоскрёб"},{"u":"5","p":"3","en":"slavery","ru":"рабство"},{"u":"5","p":"3","en":"soundtrack","ru":"саундтрек"},{"u":"5","p":"3","en":"special effects","ru":"спецэффекты"},{"u":"5","p":"3","en":"stunning","ru":"потрясающий"},{"u":"5","p":"3","en":"sweep (across)","ru":"проноситься (по)"},{"u":"5","p":"3","en":"tend","ru":"иметь тенденцию; склоняться"},{"u":"5","p":"3","en":"terrific","ru":"великолепный"},{"u":"5","p":"3","en":"terrifying","ru":"ужасающий"},{"u":"5","p":"3","en":"thriller","ru":"триллер"},{"u":"5","p":"3","en":"topic","ru":"тема"},{"u":"5","p":"3","en":"unexciting","ru":"скучный"},{"u":"5","p":"3","en":"violent","ru":"жестокий"},{"u":"5","p":"3","en":"voice","ru":"голос; озвучивать"},{"u":"5","p":"3","en":"vote","ru":"голосовать; голос"},{"u":"5","p":"3","en":"world-wide","ru":"всемирный"},{"u":"6","p":"1","en":"accident","ru":"несчастный случай; авария"},{"u":"6","p":"1","en":"artificially","ru":"искусственно"},{"u":"6","p":"1","en":"at speed","ru":"на большой скорости"},{"u":"6","p":"1","en":"automatically","ru":"автоматически"},{"u":"6","p":"1","en":"basically","ru":"в основном; по сути"},{"u":"6","p":"1","en":"brake","ru":"тормоз; тормозить"},{"u":"6","p":"1","en":"cheerful","ru":"весёлый"},{"u":"6","p":"1","en":"climate change","ru":"изменение климата"},{"u":"6","p":"1","en":"cloud seeding","ru":"засев облаков"},{"u":"6","p":"1","en":"commute","ru":"ездить на работу"},{"u":"6","p":"1","en":"confirm","ru":"подтверждать"},{"u":"6","p":"1","en":"contract","ru":"контракт"},{"u":"6","p":"1","en":"correspondent","ru":"корреспондент"},{"u":"6","p":"1","en":"crew","ru":"экипаж; команда"},{"u":"6","p":"1","en":"crop","ru":"урожай; культура"},{"u":"6","p":"1","en":"decrease","ru":"уменьшаться; уменьшение"},{"u":"6","p":"1","en":"disability","ru":"инвалидность"},{"u":"6","p":"1","en":"driverless","ru":"беспилотный"},{"u":"6","p":"1","en":"driving test","ru":"экзамен на права"},{"u":"6","p":"1","en":"drone","ru":"дрон"},{"u":"6","p":"1","en":"drought","ru":"засуха"},{"u":"6","p":"1","en":"dusty","ru":"пыльный"},{"u":"6","p":"1","en":"explore","ru":"исследовать"},{"u":"6","p":"1","en":"extreme","ru":"экстремальный"},{"u":"6","p":"1","en":"fire","ru":"огонь; уволить"},{"u":"6","p":"1","en":"heatwave","ru":"волна жары"},{"u":"6","p":"1","en":"helpless","ru":"беспомощный"},{"u":"6","p":"1","en":"imaginative","ru":"творческий; с богатым воображением"},{"u":"6","p":"1","en":"in charge","ru":"ответственный; за главного"},{"u":"6","p":"2","en":"in control","ru":"под контролем"},{"u":"6","p":"2","en":"increase","ru":"увеличивать(ся); рост"},{"u":"6","p":"2","en":"injure","ru":"ранить; травмировать"},{"u":"6","p":"2","en":"instant messaging","ru":"мгновенный обмен сообщениями"},{"u":"6","p":"2","en":"interrupt","ru":"прерывать"},{"u":"6","p":"2","en":"junction","ru":"перекрёсток"},{"u":"6","p":"2","en":"landslide","ru":"оползень"},{"u":"6","p":"2","en":"lane","ru":"полоса движения; переулок"},{"u":"6","p":"2","en":"meteorological","ru":"метеорологический"},{"u":"6","p":"2","en":"motorway","ru":"автомагистраль"},{"u":"6","p":"2","en":"musical","ru":"мюзикл; музыкальный"},{"u":"6","p":"2","en":"nowadays","ru":"в наши дни"},{"u":"6","p":"2","en":"overtake","ru":"обгонять"},{"u":"6","p":"2","en":"park","ru":"парковать; парк"},{"u":"6","p":"2","en":"possession","ru":"владение; имущество"},{"u":"6","p":"2","en":"practical","ru":"практичный"},{"u":"6","p":"2","en":"prevent","ru":"предотвращать"},{"u":"6","p":"2","en":"protect","ru":"защищать"},{"u":"6","p":"2","en":"pulse","ru":"пульс"},{"u":"6","p":"2","en":"rainfall","ru":"количество осадков"},{"u":"6","p":"2","en":"replaceable","ru":"заменимый"},{"u":"6","p":"2","en":"seasonal","ru":"сезонный"},{"u":"6","p":"2","en":"shortage","ru":"нехватка"},{"u":"6","p":"2","en":"skill","ru":"навык"},{"u":"6","p":"2","en":"slip out","ru":"выскользнуть; вырваться (о словах)"},{"u":"6","p":"2","en":"sociable","ru":"общительный"},{"u":"6","p":"2","en":"social","ru":"социальный"},{"u":"6","p":"2","en":"speed limit","ru":"ограничение скорости"},{"u":"6","p":"2","en":"steering wheel","ru":"руль"},{"u":"6","p":"2","en":"traditional","ru":"традиционный"},{"u":"6","p":"2","en":"traffic jam","ru":"пробка"},{"u":"6","p":"2","en":"tropical","ru":"тропический"},{"u":"6","p":"3","en":"unemployable","ru":"неспособный к трудоустройству"},{"u":"6","p":"3","en":"wages","ru":"зарплата"},{"u":"6","p":"3","en":"washable","ru":"стираемый; моющийся"},{"u":"6","p":"3","en":"weather pattern","ru":"погодная закономерность"},{"u":"7","p":"1","en":"accommodation","ru":"жильё"},{"u":"7","p":"1","en":"advertisement","ru":"реклама"},{"u":"7","p":"1","en":"ambition","ru":"амбиция; честолюбие"},{"u":"7","p":"1","en":"ambitious","ru":"амбициозный"},{"u":"7","p":"1","en":"anthropologist","ru":"антрополог"},{"u":"7","p":"1","en":"applicant","ru":"кандидат; соискатель"},{"u":"7","p":"1","en":"apply","ru":"подавать заявку; применять"},{"u":"7","p":"1","en":"aspect","ru":"аспект; сторона"},{"u":"7","p":"1","en":"assistant manager","ru":"помощник менеджера"},{"u":"7","p":"1","en":"attend","ru":"посещать"},{"u":"7","p":"1","en":"attitude","ru":"отношение"},{"u":"7","p":"1","en":"award","ru":"награда; награждать"},{"u":"7","p":"1","en":"behaviour","ru":"поведение"},{"u":"7","p":"1","en":"blame","ru":"винить; вина"},{"u":"7","p":"1","en":"blogger","ru":"блогер"},{"u":"7","p":"1","en":"branch","ru":"филиал; ветвь"},{"u":"7","p":"1","en":"bright","ru":"умный; яркий"},{"u":"7","p":"1","en":"bubbly","ru":"жизнерадостный; искристый"},{"u":"7","p":"1","en":"champion","ru":"чемпион; защищать"},{"u":"7","p":"1","en":"climb","ru":"подниматься; взбираться"},{"u":"7","p":"1","en":"concentrate","ru":"концентрироваться"},{"u":"7","p":"1","en":"creative","ru":"творческий"},{"u":"7","p":"1","en":"criticize","ru":"критиковать"},{"u":"7","p":"1","en":"customer care","ru":"обслуживание клиентов"},{"u":"7","p":"1","en":"decision maker","ru":"лицо, принимающее решения"},{"u":"7","p":"1","en":"determined","ru":"решительный"},{"u":"7","p":"1","en":"director","ru":"директор; режиссёр"},{"u":"7","p":"1","en":"disagreement","ru":"разногласие"},{"u":"7","p":"2","en":"dragonfly","ru":"стрекоза"},{"u":"7","p":"2","en":"early","ru":"ранний"},{"u":"7","p":"2","en":"entertainment","ru":"развлечение"},{"u":"7","p":"2","en":"entrance","ru":"вход"},{"u":"7","p":"2","en":"environmental","ru":"экологический"},{"u":"7","p":"2","en":"executive","ru":"руководитель"},{"u":"7","p":"2","en":"expanding","ru":"расширяющийся"},{"u":"7","p":"2","en":"failure","ru":"провал; неудача"},{"u":"7","p":"2","en":"fame","ru":"слава"},{"u":"7","p":"2","en":"famous","ru":"знаменитый"},{"u":"7","p":"2","en":"festival","ru":"фестиваль"},{"u":"7","p":"2","en":"flock","ru":"стая; собираться толпой"},{"u":"7","p":"2","en":"get to the top","ru":"добиться успеха"},{"u":"7","p":"2","en":"high achiever","ru":"человек, добивающийся высоких результатов"},{"u":"7","p":"2","en":"humanitarian","ru":"гуманитарный"},{"u":"7","p":"2","en":"innovative","ru":"инновационный"},{"u":"7","p":"2","en":"job satisfaction","ru":"удовлетворённость работой"},{"u":"7","p":"2","en":"lifestyle","ru":"образ жизни"},{"u":"7","p":"2","en":"lifetime","ru":"продолжительность жизни; всю жизнь"},{"u":"7","p":"2","en":"make progress","ru":"добиваться прогресса"},{"u":"7","p":"2","en":"make (someone) redundant","ru":"уволить (кого-либо) по сокращению"},{"u":"7","p":"2","en":"management","ru":"руководство; менеджмент"},{"u":"7","p":"2","en":"motivate","ru":"мотивировать"},{"u":"7","p":"2","en":"networking","ru":"нетворкинг; налаживание связей"},{"u":"7","p":"2","en":"obey","ru":"подчиняться"},{"u":"7","p":"2","en":"occupation","ru":"профессия; занятие"},{"u":"7","p":"2","en":"online community","ru":"онлайн-сообщество"},{"u":"7","p":"2","en":"overnight","ru":"за одну ночь; ночной"},{"u":"7","p":"2","en":"pattern","ru":"шаблон; закономерность"},{"u":"7","p":"2","en":"point of view","ru":"точка зрения"},{"u":"7","p":"2","en":"position","ru":"должность; позиция"},{"u":"7","p":"2","en":"procedure","ru":"процедура"},{"u":"7","p":"2","en":"producer","ru":"продюсер; производитель"},{"u":"7","p":"3","en":"prospects","ru":"перспективы"},{"u":"7","p":"3","en":"quality","ru":"качество"},{"u":"7","p":"3","en":"quit","ru":"бросить; уволиться"},{"u":"7","p":"3","en":"relaxed","ru":"расслабленный"},{"u":"7","p":"3","en":"relocation office","ru":"отдел переезда"},{"u":"7","p":"3","en":"rent-free","ru":"бесплатно (без арендной платы)"},{"u":"7","p":"3","en":"reputation","ru":"репутация"},{"u":"7","p":"3","en":"researcher","ru":"исследователь"},{"u":"7","p":"3","en":"retrain","ru":"переучиваться"},{"u":"7","p":"3","en":"rule","ru":"правило; управлять"},{"u":"7","p":"3","en":"school leaver's certificate","ru":"аттестат об окончании школы"},{"u":"7","p":"3","en":"sick","ru":"больной"},{"u":"7","p":"3","en":"skilled","ru":"квалифицированный"},{"u":"7","p":"3","en":"specialist","ru":"специалист"},{"u":"7","p":"3","en":"standard of living","ru":"уровень жизни"},{"u":"7","p":"3","en":"stay","ru":"оставаться"},{"u":"7","p":"3","en":"suited","ru":"подходящий"},{"u":"7","p":"3","en":"supervise","ru":"руководить; надзирать"},{"u":"7","p":"3","en":"take risks","ru":"рисковать"},{"u":"7","p":"3","en":"talented","ru":"талантливый"},{"u":"7","p":"3","en":"team leader","ru":"руководитель группы"},{"u":"7","p":"3","en":"temporary","ru":"временный"},{"u":"7","p":"3","en":"thoughtful","ru":"вдумчивый; внимательный"},{"u":"7","p":"3","en":"travel back in time","ru":"путешествовать во времени"},{"u":"7","p":"3","en":"treasured","ru":"драгоценный; дорогой"},{"u":"7","p":"3","en":"unbelievable","ru":"невероятный"},{"u":"7","p":"3","en":"unite","ru":"объединять"},{"u":"7","p":"3","en":"unskilled","ru":"неквалифицированный"},{"u":"7","p":"3","en":"up to date","ru":"современный; актуальный"},{"u":"7","p":"3","en":"value","ru":"ценить; ценность"},{"u":"7","p":"3","en":"visa","ru":"виза"},{"u":"7","p":"3","en":"well known","ru":"известный"},{"u":"7","p":"3","en":"wonder","ru":"чудо; интересоваться"},{"u":"7","p":"4","en":"work experience","ru":"опыт работы"},{"u":"7","p":"4","en":"working conditions","ru":"условия работы"},{"u":"7","p":"4","en":"working hours","ru":"рабочие часы"},{"u":"8","p":"1","en":"active","ru":"активный"},{"u":"8","p":"1","en":"adapt","ru":"адаптироваться"},{"u":"8","p":"1","en":"afraid","ru":"боящийся"},{"u":"8","p":"1","en":"appreciate","ru":"ценить; быть благодарным"},{"u":"8","p":"1","en":"appropriate","ru":"подходящий"},{"u":"8","p":"1","en":"audience","ru":"аудитория; публика"},{"u":"8","p":"1","en":"balanced","ru":"сбалансированный"},{"u":"8","p":"1","en":"be capable of","ru":"быть способным на"},{"u":"8","p":"1","en":"brave","ru":"храбрый"},{"u":"8","p":"1","en":"bring up","ru":"воспитывать"},{"u":"8","p":"1","en":"bully","ru":"издеваться; задира"},{"u":"8","p":"1","en":"burning","ru":"горящий; жгучий"},{"u":"8","p":"1","en":"casual","ru":"повседневный; неформальный"},{"u":"8","p":"1","en":"childcare","ru":"уход за детьми"},{"u":"8","p":"1","en":"cost of living","ru":"стоимость жизни"},{"u":"8","p":"1","en":"cosy","ru":"уютный"},{"u":"8","p":"1","en":"craft","ru":"ремесло; мастерство"},{"u":"8","p":"1","en":"cultural","ru":"культурный"},{"u":"8","p":"1","en":"culture shock","ru":"культурный шок"},{"u":"8","p":"1","en":"disadvantage","ru":"недостаток; невыгодное положение"},{"u":"8","p":"1","en":"disaster","ru":"катастрофа"},{"u":"8","p":"1","en":"dress code","ru":"дресс-код"},{"u":"8","p":"1","en":"economy","ru":"экономика"},{"u":"8","p":"1","en":"educated","ru":"образованный"},{"u":"8","p":"1","en":"embarrassed","ru":"смущённый"},{"u":"8","p":"1","en":"explode","ru":"взрываться"},{"u":"8","p":"1","en":"extremely","ru":"крайне"},{"u":"8","p":"1","en":"eye contact","ru":"зрительный контакт"},{"u":"8","p":"2","en":"factor","ru":"фактор"},{"u":"8","p":"2","en":"fear","ru":"страх; бояться"},{"u":"8","p":"2","en":"firefighter","ru":"пожарный"},{"u":"8","p":"2","en":"first aid","ru":"первая помощь"},{"u":"8","p":"2","en":"formal","ru":"официальный; формальный"},{"u":"8","p":"2","en":"gender","ru":"пол; гендер"},{"u":"8","p":"2","en":"generous","ru":"щедрый"},{"u":"8","p":"2","en":"genius","ru":"гений"},{"u":"8","p":"2","en":"have no problem (doing)","ru":"не иметь ничего против (делать)"},{"u":"8","p":"2","en":"healthcare","ru":"здравоохранение"},{"u":"8","p":"2","en":"hero","ru":"герой"},{"u":"8","p":"2","en":"heroic","ru":"героический"},{"u":"8","p":"2","en":"heroically","ru":"героически"},{"u":"8","p":"2","en":"heroism","ru":"героизм"},{"u":"8","p":"2","en":"immediate","ru":"немедленный"},{"u":"8","p":"2","en":"knitting","ru":"вязание"},{"u":"8","p":"2","en":"lottery","ru":"лотерея"},{"u":"8","p":"2","en":"method","ru":"метод"},{"u":"8","p":"2","en":"misbehave","ru":"плохо себя вести"},{"u":"8","p":"2","en":"misjudge","ru":"неверно оценить"},{"u":"8","p":"2","en":"misunderstand","ru":"неправильно понять"},{"u":"8","p":"2","en":"neighbour","ru":"сосед"},{"u":"8","p":"2","en":"overspend","ru":"перетратить"},{"u":"8","p":"2","en":"physical activity","ru":"физическая активность"},{"u":"8","p":"2","en":"poverty","ru":"бедность"},{"u":"8","p":"2","en":"pram","ru":"детская коляска"},{"u":"8","p":"2","en":"rarely","ru":"редко"},{"u":"8","p":"2","en":"reappear","ru":"снова появляться"},{"u":"8","p":"2","en":"reasonable","ru":"разумный"},{"u":"8","p":"3","en":"redecorate","ru":"делать ремонт; переоформлять"},{"u":"8","p":"3","en":"renewable","ru":"возобновляемый"},{"u":"8","p":"3","en":"reschedule","ru":"перенести на другое время"},{"u":"8","p":"3","en":"rescue","ru":"спасать; спасение"},{"u":"8","p":"3","en":"risk","ru":"рисковать; риск"},{"u":"8","p":"3","en":"risky","ru":"рискованный"},{"u":"8","p":"3","en":"selfish","ru":"эгоистичный"},{"u":"8","p":"3","en":"sensible","ru":"разумный"},{"u":"8","p":"3","en":"society","ru":"общество"},{"u":"8","p":"3","en":"spectacularly","ru":"эффектно; потрясающе"},{"u":"8","p":"3","en":"stay up","ru":"не ложиться спать"},{"u":"8","p":"3","en":"suffer","ru":"страдать"},{"u":"8","p":"3","en":"superstar","ru":"суперзвезда"},{"u":"8","p":"3","en":"undercook","ru":"недоварить"},{"u":"8","p":"3","en":"underdressed","ru":"недостаточно одетый"},{"u":"8","p":"3","en":"volunteer","ru":"вызываться добровольцем; доброволец"},{"u":"9","p":"1","en":"abstract","ru":"абстрактный"},{"u":"9","p":"1","en":"background","ru":"фон"},{"u":"9","p":"1","en":"beauty","ru":"красота"},{"u":"9","p":"1","en":"bird-watching","ru":"наблюдение за птицами"},{"u":"9","p":"1","en":"blob","ru":"пятно; капля"},{"u":"9","p":"1","en":"blonde","ru":"блондинка; светлый"},{"u":"9","p":"1","en":"campaign","ru":"кампания"},{"u":"9","p":"1","en":"clean-shaven","ru":"гладко выбритый"},{"u":"9","p":"1","en":"closed off","ru":"замкнутый"},{"u":"9","p":"1","en":"come across","ru":"наткнуться на"},{"u":"9","p":"1","en":"come up with","ru":"придумать"},{"u":"9","p":"1","en":"consider","ru":"рассматривать; считать"},{"u":"9","p":"1","en":"curly","ru":"вьющийся"},{"u":"9","p":"1","en":"curtain","ru":"штора; занавеска"},{"u":"9","p":"1","en":"curve","ru":"кривая; изгиб"},{"u":"9","p":"1","en":"database","ru":"база данных"},{"u":"9","p":"1","en":"description","ru":"описание"},{"u":"9","p":"1","en":"detailed","ru":"подробный"},{"u":"9","p":"1","en":"devote","ru":"посвящать"},{"u":"9","p":"1","en":"double chin","ru":"второй подбородок"},{"u":"9","p":"1","en":"dye","ru":"красить (волосы)"},{"u":"9","p":"1","en":"emotion","ru":"эмоция"},{"u":"9","p":"1","en":"express","ru":"выражать"},{"u":"9","p":"1","en":"eyebrow","ru":"бровь"},{"u":"9","p":"1","en":"eyelash","ru":"ресница"},{"u":"9","p":"1","en":"foreground","ru":"передний план"},{"u":"9","p":"1","en":"fringe","ru":"чёлка"},{"u":"9","p":"1","en":"go bald","ru":"облысеть"},{"u":"9","p":"1","en":"grey","ru":"седой; серый"},{"u":"9","p":"1","en":"historical","ru":"исторический"},{"u":"9","p":"1","en":"honestly","ru":"честно"},{"u":"9","p":"2","en":"hunt","ru":"охотиться; охота"},{"u":"9","p":"2","en":"irritated","ru":"раздражённый"},{"u":"9","p":"2","en":"look forward to","ru":"с нетерпением ждать"},{"u":"9","p":"2","en":"look up","ru":"искать (в словаре)"},{"u":"9","p":"2","en":"make out","ru":"разглядеть; понимать"},{"u":"9","p":"2","en":"moustache","ru":"усы"},{"u":"9","p":"2","en":"mysterious","ru":"таинственный"},{"u":"9","p":"2","en":"old-fashioned","ru":"старомодный"},{"u":"9","p":"2","en":"overweight","ru":"с избыточным весом"},{"u":"9","p":"2","en":"phenomenon","ru":"явление"},{"u":"9","p":"2","en":"portrait","ru":"портрет"},{"u":"9","p":"2","en":"projector","ru":"проектор"},{"u":"9","p":"2","en":"put up","ru":"вешать; размещать"},{"u":"9","p":"2","en":"reflect","ru":"отражать; размышлять"},{"u":"9","p":"2","en":"reflection","ru":"отражение"},{"u":"9","p":"2","en":"seem","ru":"казаться"},{"u":"9","p":"2","en":"seemingly","ru":"по-видимому"},{"u":"9","p":"2","en":"self-described","ru":"самопровозглашённый"},{"u":"9","p":"2","en":"shoulder-length","ru":"до плеч"},{"u":"9","p":"2","en":"side by side","ru":"бок о бок"},{"u":"9","p":"2","en":"skate","ru":"кататься на коньках"},{"u":"9","p":"2","en":"sketch","ru":"набросок"},{"u":"9","p":"2","en":"slim","ru":"стройный"},{"u":"9","p":"2","en":"spiky","ru":"колючий; торчащий"},{"u":"9","p":"2","en":"stranger","ru":"незнакомец"},{"u":"9","p":"2","en":"stubble","ru":"щетина"},{"u":"9","p":"2","en":"suit","ru":"подходить; костюм"},{"u":"9","p":"2","en":"tap","ru":"кран; постукивать"},{"u":"9","p":"2","en":"tape recorder","ru":"магнитофон"},{"u":"9","p":"2","en":"teapot","ru":"чайник"},{"u":"9","p":"2","en":"wear","ru":"носить (одежду)"},{"u":"9","p":"2","en":"well-built","ru":"крепкого телосложения"},{"u":"10","p":"1","en":"abundance","ru":"изобилие"},{"u":"10","p":"1","en":"academically","ru":"академически; в учёбе"},{"u":"10","p":"1","en":"athlete","ru":"спортсмен"},{"u":"10","p":"1","en":"attraction","ru":"достопримечательность; притяжение"},{"u":"10","p":"1","en":"back","ru":"поддерживать; спина"},{"u":"10","p":"1","en":"bank loan","ru":"банковский кредит"},{"u":"10","p":"1","en":"boutique hotel","ru":"бутик-отель"},{"u":"10","p":"1","en":"break a record","ru":"побить рекорд"},{"u":"10","p":"1","en":"cheerleading","ru":"чирлидинг"},{"u":"10","p":"1","en":"compete","ru":"соревноваться"},{"u":"10","p":"1","en":"competitive","ru":"конкурентный"},{"u":"10","p":"1","en":"crowd-funding","ru":"краудфандинг"},{"u":"10","p":"1","en":"dancing","ru":"танцы"},{"u":"10","p":"1","en":"decade","ru":"десятилетие"},{"u":"10","p":"1","en":"destination","ru":"место назначения"},{"u":"10","p":"1","en":"demotivating","ru":"демотивирующий"},{"u":"10","p":"1","en":"district","ru":"район"},{"u":"10","p":"1","en":"dramatically","ru":"резко"},{"u":"10","p":"1","en":"dominate","ru":"доминировать"},{"u":"10","p":"1","en":"earplug","ru":"беруши"},{"u":"10","p":"1","en":"entrepreneur","ru":"предприниматель"},{"u":"10","p":"1","en":"event","ru":"событие"},{"u":"10","p":"1","en":"fashionable","ru":"модный"},{"u":"10","p":"1","en":"field","ru":"поле"},{"u":"10","p":"1","en":"figure","ru":"фигура; цифра"},{"u":"10","p":"1","en":"guarantee","ru":"гарантия; гарантировать"},{"u":"10","p":"2","en":"have a feeling","ru":"чувствовать; предчувствовать"},{"u":"10","p":"2","en":"have a go","ru":"попробовать"},{"u":"10","p":"2","en":"home stadium","ru":"домашний стадион"},{"u":"10","p":"2","en":"home team","ru":"домашняя команда"},{"u":"10","p":"2","en":"investment","ru":"инвестиция"},{"u":"10","p":"2","en":"investor","ru":"инвестор"},{"u":"10","p":"2","en":"magnificent","ru":"великолепный"},{"u":"10","p":"2","en":"manufacture","ru":"производить"},{"u":"10","p":"2","en":"must-see","ru":"обязательный к просмотру"},{"u":"10","p":"2","en":"nightclub","ru":"ночной клуб"},{"u":"10","p":"2","en":"non-competitive","ru":"некомпетитивный"},{"u":"10","p":"2","en":"open-air","ru":"открытый; на открытом воздухе"},{"u":"10","p":"2","en":"padded","ru":"мягкий; с подкладкой"},{"u":"10","p":"2","en":"pledge","ru":"обещать; обет"},{"u":"10","p":"2","en":"popularity","ru":"популярность"},{"u":"10","p":"2","en":"present","ru":"подарок; представлять"},{"u":"10","p":"2","en":"profit","ru":"прибыль"},{"u":"10","p":"2","en":"pull over","ru":"остановиться у обочины"},{"u":"10","p":"2","en":"raise","ru":"поднимать; повышать"},{"u":"10","p":"2","en":"referee","ru":"рефери; судья"},{"u":"10","p":"2","en":"renovate","ru":"ремонтировать; обновлять"},{"u":"10","p":"2","en":"resemble","ru":"напоминать внешне"},{"u":"10","p":"2","en":"riot","ru":"беспорядки"},{"u":"10","p":"2","en":"rugby","ru":"регби"},{"u":"10","p":"2","en":"run-down","ru":"запущенный; обветшалый"},{"u":"10","p":"2","en":"self-esteem","ru":"самооценка"},{"u":"10","p":"2","en":"service","ru":"обслуживание"},{"u":"10","p":"2","en":"set up","ru":"организовать; создать"},{"u":"10","p":"2","en":"short of cash","ru":"без денег"},{"u":"10","p":"3","en":"skyline","ru":"горизонт; силуэт города"},{"u":"10","p":"3","en":"sophisticated","ru":"утончённый; сложный"},{"u":"10","p":"3","en":"state-of-the-art","ru":"новейший; передовой"},{"u":"10","p":"3","en":"take a decision","ru":"принимать решение"},{"u":"10","p":"3","en":"take a risk","ru":"рисковать"},{"u":"10","p":"3","en":"take no notice of (someone/something)","ru":"не обращать внимания на"},{"u":"10","p":"3","en":"take (someone's) word for it","ru":"поверить на слово"},{"u":"10","p":"3","en":"take advantage of","ru":"воспользоваться"},{"u":"10","p":"3","en":"take care of","ru":"заботиться о"},{"u":"10","p":"3","en":"take out","ru":"вынимать; вывести"},{"u":"10","p":"3","en":"take turns","ru":"чередоваться"},{"u":"10","p":"3","en":"thrilling","ru":"захватывающий"},{"u":"10","p":"3","en":"tournament","ru":"турнир"},{"u":"10","p":"3","en":"trampolining","ru":"батут"},{"u":"10","p":"3","en":"trendy","ru":"модный"},{"u":"10","p":"3","en":"unheard of","ru":"неслыханный"},{"u":"10","p":"3","en":"unrealistic","ru":"нереалистичный"},{"u":"10","p":"3","en":"vibrant","ru":"яркий; живой"},{"u":"11","p":"1","en":"arrest","ru":"арестовать; арест"},{"u":"11","p":"1","en":"bandit","ru":"бандит"},{"u":"11","p":"1","en":"barefoot","ru":"босиком"},{"u":"11","p":"1","en":"blog","ru":"вести блог; блог"},{"u":"11","p":"1","en":"burglar","ru":"грабитель-взломщик"},{"u":"11","p":"1","en":"burglary","ru":"кража со взломом"},{"u":"11","p":"1","en":"candidate","ru":"кандидат"},{"u":"11","p":"1","en":"capture","ru":"захватывать; захват"},{"u":"11","p":"1","en":"careless","ru":"небрежный"},{"u":"11","p":"1","en":"change","ru":"менять(ся)"},{"u":"11","p":"1","en":"consequence","ru":"последствие"},{"u":"11","p":"1","en":"crash-land","ru":"совершить аварийную посадку"},{"u":"11","p":"1","en":"criminal","ru":"преступник; преступный"},{"u":"11","p":"1","en":"cyberbullying","ru":"кибербуллинг"},{"u":"11","p":"1","en":"delay","ru":"задержка; задерживать"},{"u":"11","p":"1","en":"escape","ru":"сбежать"},{"u":"11","p":"1","en":"extension","ru":"продление; расширение"},{"u":"11","p":"1","en":"fine","ru":"штраф; штрафовать; хороший"},{"u":"11","p":"1","en":"illegally","ru":"незаконно"},{"u":"11","p":"1","en":"inconvenience","ru":"неудобство"},{"u":"11","p":"1","en":"issue","ru":"вопрос; проблема; выпускать"},{"u":"11","p":"1","en":"insult","ru":"оскорблять; оскорбление"},{"u":"11","p":"1","en":"interaction","ru":"взаимодействие"},{"u":"11","p":"1","en":"light","ru":"свет; лёгкий"},{"u":"11","p":"1","en":"match","ru":"матч; подходить"},{"u":"11","p":"1","en":"nasty","ru":"противный; неприятный"},{"u":"11","p":"1","en":"outlaw","ru":"преступник вне закона; объявить вне закона"},{"u":"11","p":"1","en":"passionate","ru":"страстный"},{"u":"11","p":"1","en":"permission","ru":"разрешение"},{"u":"11","p":"1","en":"prison","ru":"тюрьма"},{"u":"11","p":"2","en":"punishment","ru":"наказание"},{"u":"11","p":"2","en":"regret","ru":"сожалеть; сожаление"},{"u":"11","p":"2","en":"reportedly","ru":"по сообщениям"},{"u":"11","p":"2","en":"rob","ru":"грабить"},{"u":"11","p":"2","en":"robber","ru":"грабитель"},{"u":"11","p":"2","en":"say (something) to (someone's) face","ru":"сказать кому-то прямо в лицо"},{"u":"11","p":"2","en":"sensation","ru":"ощущение; сенсация"},{"u":"11","p":"2","en":"sentence","ru":"приговор; предложение"},{"u":"11","p":"2","en":"spare","ru":"свободный; запасной"},{"u":"11","p":"2","en":"speak up","ru":"говорить громче; высказаться"},{"u":"11","p":"2","en":"square","ru":"площадь; квадратный"},{"u":"11","p":"2","en":"stolen","ru":"украденный"},{"u":"11","p":"2","en":"stop (someone) from (doing)","ru":"мешать (кому-то) что-то делать"},{"u":"11","p":"2","en":"submission","ru":"подача; представление"},{"u":"11","p":"2","en":"suspect","ru":"подозревать; подозреваемый"},{"u":"11","p":"2","en":"theft","ru":"кража"},{"u":"11","p":"2","en":"thief","ru":"вор"},{"u":"11","p":"2","en":"unfashionable","ru":"немодный"},{"u":"11","p":"2","en":"unintended","ru":"непреднамеренный"},{"u":"11","p":"2","en":"unprofessional","ru":"непрофессиональный"},{"u":"11","p":"2","en":"upload","ru":"загружать"},{"u":"11","p":"2","en":"upset","ru":"расстроенный; расстраивать"},{"u":"11","p":"2","en":"victim","ru":"жертва"},{"u":"11","p":"2","en":"violence","ru":"насилие"},{"u":"12","p":"1","en":"advert","ru":"реклама; объявление"},{"u":"12","p":"1","en":"associate","ru":"ассоциировать; связывать"},{"u":"12","p":"1","en":"billboard","ru":"рекламный щит"},{"u":"12","p":"1","en":"brand","ru":"бренд"},{"u":"12","p":"1","en":"bring (someone) round to","ru":"убедить (кого-то) принять"},{"u":"12","p":"1","en":"drawback","ru":"недостаток"},{"u":"12","p":"1","en":"effective","ru":"эффективный"},{"u":"12","p":"1","en":"homeless","ru":"бездомный"},{"u":"12","p":"1","en":"image","ru":"образ; имидж"},{"u":"12","p":"1","en":"influence","ru":"влиять; влияние"},{"u":"12","p":"1","en":"log on","ru":"войти в систему"},{"u":"12","p":"1","en":"make (someone) aware of","ru":"сделать (кого-то) осведомлённым о"},{"u":"12","p":"1","en":"major","ru":"важный; крупный"},{"u":"12","p":"1","en":"memorable","ru":"запоминающийся"},{"u":"12","p":"1","en":"menswear store","ru":"магазин мужской одежды"},{"u":"12","p":"1","en":"moth","ru":"мотылёк; моль"},{"u":"12","p":"1","en":"negotiator","ru":"переговорщик"},{"u":"12","p":"1","en":"news agenda","ru":"повестка новостей"},{"u":"12","p":"1","en":"objection","ru":"возражение"},{"u":"12","p":"1","en":"objective","ru":"цель; объективный"},{"u":"12","p":"1","en":"overcome","ru":"преодолевать"},{"u":"12","p":"1","en":"pass a law","ru":"принять закон"},{"u":"12","p":"1","en":"perspective","ru":"перспектива; точка зрения"},{"u":"12","p":"1","en":"persuasion","ru":"убеждение"},{"u":"12","p":"1","en":"persuasive","ru":"убедительный"},{"u":"12","p":"1","en":"point of view","ru":"точка зрения"},{"u":"12","p":"1","en":"poster","ru":"плакат"},{"u":"12","p":"1","en":"psychology","ru":"психология"},{"u":"12","p":"1","en":"rely on","ru":"полагаться на"},{"u":"12","p":"2","en":"slogan","ru":"лозунг"},{"u":"12","p":"2","en":"soft power","ru":"мягкая сила"},{"u":"12","p":"2","en":"stylish","ru":"стильный"},{"u":"12","p":"2","en":"switch off","ru":"выключать; отключиться"},{"u":"12","p":"2","en":"upset","ru":"расстроенный"},{"u":"12","p":"2","en":"win over","ru":"склонить на свою сторону"}];
-const DEFAULT_RULES = [[0,2,5],[3,4,4],[5,6,3],[7,8,2],[9,10,1],[11,null,0]];
-const KEY = "englishWords.v1";
-const DEFAULT_STATE = () => ({
-  words: [], nextId: 1, rules: DEFAULT_RULES.map(r => ({min:r[0], max:r[1], points:r[2]})),
-  sessions: [], nextSession: 1, active: null,
-  settings: { perSession: 10, shuffle: true, rate: 1, retry: false }
-});
-let S;
-try { S = Object.assign(DEFAULT_STATE(), JSON.parse(localStorage.getItem(KEY) || "null") || {}); }
-catch (_) { S = DEFAULT_STATE(); }
-function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(_) { toast("Не удалось сохранить данные в браузере"); } }
+var BUNDLED = [{"u":"1","p":"1","en":"ability","ru":"способность"},{"u":"1","p":"1","en":"able","ru":"способный"},{"u":"1","p":"1","en":"achievement","ru":"достижение"},{"u":"1","p":"1","en":"adventure","ru":"приключение"},{"u":"1","p":"1","en":"bargain","ru":"выгодная покупка; торговаться"},{"u":"1","p":"1","en":"behave","ru":"вести себя"},{"u":"1","p":"1","en":"charity","ru":"благотворительность"},{"u":"1","p":"1","en":"choice","ru":"выбор"},{"u":"1","p":"1","en":"communication","ru":"общение; коммуникация"},{"u":"1","p":"1","en":"connect","ru":"связывать; соединять"},{"u":"1","p":"1","en":"consumer","ru":"потребитель"},{"u":"1","p":"1","en":"convinced","ru":"убеждённый; уверенный"},{"u":"1","p":"1","en":"currently","ru":"в настоящее время"},{"u":"1","p":"1","en":"deal","ru":"сделка; иметь дело"},{"u":"1","p":"1","en":"deeply","ru":"глубоко"},{"u":"1","p":"1","en":"definition","ru":"определение"},{"u":"1","p":"1","en":"develop","ru":"развивать(ся)"},{"u":"1","p":"1","en":"digital age","ru":"цифровой век"},{"u":"1","p":"1","en":"effect","ru":"эффект; влияние"},{"u":"1","p":"1","en":"expression","ru":"выражение"},{"u":"1","p":"1","en":"fall out (with someone)","ru":"поссориться (с кем-либо)"},{"u":"1","p":"1","en":"friendship","ru":"дружба"},{"u":"1","p":"1","en":"get on (well with someone)","ru":"ладить (с кем-либо)"},{"u":"1","p":"1","en":"govern","ru":"управлять"},{"u":"1","p":"1","en":"government","ru":"правительство"},{"u":"1","p":"1","en":"guilt-free","ru":"без чувства вины"},{"u":"1","p":"1","en":"half-price","ru":"за полцены"},{"u":"1","p":"1","en":"harmful","ru":"вредный"},{"u":"1","p":"1","en":"come face-to-face with","ru":"столкнуться лицом к лицу с"},{"u":"1","p":"1","en":"have a lot in common","ru":"иметь много общего"},{"u":"1","p":"2","en":"help (someone) out","ru":"помогать (кому-либо), выручать"},{"u":"1","p":"2","en":"improvement","ru":"улучшение"},{"u":"1","p":"2","en":"in touch (with someone)","ru":"на связи (с кем-либо)"},{"u":"1","p":"2","en":"injury","ru":"травма"},{"u":"1","p":"2","en":"item","ru":"предмет; пункт"},{"u":"1","p":"2","en":"judgement","ru":"суждение; решение"},{"u":"1","p":"2","en":"lately","ru":"в последнее время"},{"u":"1","p":"2","en":"leisure time","ru":"свободное время"},{"u":"1","p":"2","en":"media","ru":"СМИ"},{"u":"1","p":"2","en":"meetup","ru":"встреча"},{"u":"1","p":"2","en":"membership","ru":"членство"},{"u":"1","p":"2","en":"movement","ru":"движение"},{"u":"1","p":"2","en":"occasional","ru":"случайный; время от времени"},{"u":"1","p":"2","en":"credit","ru":"кредит"},{"u":"1","p":"2","en":"on credit","ru":"в кредит"},{"u":"1","p":"2","en":"opportunity","ru":"возможность"},{"u":"1","p":"2","en":"persuade","ru":"убеждать"},{"u":"1","p":"2","en":"process","ru":"процесс; обрабатывать"},{"u":"1","p":"2","en":"prove","ru":"доказывать"},{"u":"1","p":"2","en":"purchase","ru":"покупка"},{"u":"1","p":"2","en":"queue","ru":"очередь; стоять в очереди"},{"u":"1","p":"2","en":"resources","ru":"ресурсы"},{"u":"1","p":"2","en":"reunite","ru":"воссоединять(ся)"},{"u":"1","p":"2","en":"run-up","ru":"подготовка; период перед чем-либо"},{"u":"1","p":"2","en":"secure","ru":"надёжный; обеспечивать"},{"u":"1","p":"2","en":"security","ru":"безопасность"},{"u":"1","p":"2","en":"smartphone","ru":"смартфон"},{"u":"1","p":"2","en":"socialize","ru":"общаться"},{"u":"1","p":"2","en":"special offer","ru":"специальное предложение"},{"u":"1","p":"2","en":"transport","ru":"транспорт; перевозить"},{"u":"1","p":"2","en":"trend","ru":"тенденция"},{"u":"1","p":"2","en":"trust","ru":"доверие; доверять"},{"u":"1","p":"2","en":"admit","ru":"признавать"},{"u":"2","p":"1","en":"announce","ru":"объявлять"},{"u":"2","p":"1","en":"appear","ru":"появляться; казаться"},{"u":"2","p":"1","en":"attempt","ru":"попытка; пытаться"},{"u":"2","p":"1","en":"be stuck","ru":"застрять"},{"u":"2","p":"1","en":"believe","ru":"верить"},{"u":"2","p":"1","en":"breath","ru":"дыхание"},{"u":"2","p":"1","en":"cable car","ru":"канатная дорога"},{"u":"2","p":"1","en":"charge","ru":"взимать плату; обвинять"},{"u":"2","p":"1","en":"circulate","ru":"распространяться; циркулировать"},{"u":"2","p":"1","en":"claim","ru":"утверждать; заявлять"},{"u":"2","p":"1","en":"coincidence","ru":"совпадение"},{"u":"2","p":"1","en":"conclusion","ru":"вывод"},{"u":"2","p":"1","en":"consecutively","ru":"подряд"},{"u":"2","p":"1","en":"create","ru":"создавать"},{"u":"2","p":"1","en":"curiously","ru":"любопытно; странно"},{"u":"2","p":"1","en":"disappear","ru":"исчезать"},{"u":"2","p":"1","en":"escape","ru":"сбежать; избежать"},{"u":"2","p":"1","en":"evidence","ru":"доказательство"},{"u":"2","p":"1","en":"expect","ru":"ожидать"},{"u":"2","p":"1","en":"fake","ru":"подделка; поддельный"},{"u":"2","p":"1","en":"float","ru":"плавать; парить"},{"u":"2","p":"1","en":"fortunately","ru":"к счастью"},{"u":"2","p":"1","en":"free","ru":"бесплатный; освобождать"},{"u":"2","p":"1","en":"hire","ru":"нанимать; арендовать"},{"u":"2","p":"1","en":"hoax","ru":"розыгрыш; мистификация"},{"u":"2","p":"1","en":"inform","ru":"информировать"},{"u":"2","p":"1","en":"interestingly","ru":"интересно"},{"u":"2","p":"2","en":"interview","ru":"интервью"},{"u":"2","p":"2","en":"invent","ru":"изобретать"},{"u":"2","p":"2","en":"jaw","ru":"челюсть"},{"u":"2","p":"2","en":"keen","ru":"увлечённый; очень желающий"},{"u":"2","p":"2","en":"keep quiet","ru":"молчать"},{"u":"2","p":"2","en":"knock into","ru":"врезаться в"},{"u":"2","p":"2","en":"live","ru":"жить; живой"},{"u":"2","p":"2","en":"lose contact","ru":"потерять связь"},{"u":"2","p":"2","en":"luckily","ru":"к счастью"},{"u":"2","p":"2","en":"medical","ru":"медицинский"},{"u":"2","p":"2","en":"mention","ru":"упоминать"},{"u":"2","p":"2","en":"orchestra","ru":"оркестр"},{"u":"2","p":"2","en":"ordinary","ru":"обычный"},{"u":"2","p":"2","en":"personally","ru":"лично"},{"u":"2","p":"2","en":"realize","ru":"осознавать"},{"u":"2","p":"2","en":"recognize","ru":"узнавать"},{"u":"2","p":"2","en":"remarkably","ru":"удивительно"},{"u":"2","p":"2","en":"remember","ru":"помнить"},{"u":"2","p":"2","en":"remind","ru":"напоминать"},{"u":"2","p":"2","en":"report","ru":"сообщать; сообщение"},{"u":"2","p":"2","en":"responsible","ru":"ответственный"},{"u":"2","p":"2","en":"sadly","ru":"к сожалению"},{"u":"2","p":"2","en":"scream","ru":"кричать"},{"u":"2","p":"2","en":"screen","ru":"экран"},{"u":"2","p":"2","en":"sharply","ru":"резко"},{"u":"2","p":"2","en":"skull","ru":"череп"},{"u":"2","p":"2","en":"sour","ru":"кислый"},{"u":"2","p":"2","en":"stream","ru":"ручей; поток"},{"u":"2","p":"2","en":"surface","ru":"поверхность"},{"u":"2","p":"2","en":"surprisingly","ru":"удивительно"},{"u":"2","p":"2","en":"survive","ru":"выживать"},{"u":"2","p":"2","en":"system","ru":"система"},{"u":"2","p":"2","en":"tell","ru":"рассказывать; говорить"},{"u":"2","p":"3","en":"track","ru":"след; выслеживать"},{"u":"2","p":"3","en":"turn around","ru":"поворачивать назад; оборачиваться"},{"u":"2","p":"3","en":"underwater","ru":"под водой"},{"u":"2","p":"3","en":"unfortunately","ru":"к сожалению"},{"u":"2","p":"3","en":"waste","ru":"тратить впустую; отходы"},{"u":"2","p":"3","en":"watermelon","ru":"арбуз"},{"u":"2","p":"3","en":"weak","ru":"слабый"},{"u":"2","p":"3","en":"whisper","ru":"шептать"},{"u":"2","p":"3","en":"wonder","ru":"удивляться; чудо"},{"u":"3","p":"1","en":"admire","ru":"восхищаться"},{"u":"3","p":"1","en":"attention","ru":"внимание"},{"u":"3","p":"1","en":"beat","ru":"побеждать; бить"},{"u":"3","p":"1","en":"bleach","ru":"отбеливатель; отбеливать"},{"u":"3","p":"1","en":"blood vessel","ru":"кровеносный сосуд"},{"u":"3","p":"1","en":"computerized","ru":"компьютеризированный"},{"u":"3","p":"1","en":"confidence","ru":"уверенность"},{"u":"3","p":"1","en":"contest","ru":"соревнование; конкурс"},{"u":"3","p":"1","en":"crack","ru":"трещина; щёлкать"},{"u":"3","p":"1","en":"damage","ru":"ущерб; повреждать"},{"u":"3","p":"1","en":"deadline","ru":"крайний срок"},{"u":"3","p":"1","en":"deal with","ru":"справляться с; иметь дело с"},{"u":"3","p":"1","en":"decision","ru":"решение"},{"u":"3","p":"1","en":"device","ru":"устройство"},{"u":"3","p":"1","en":"easy-going","ru":"лёгкий; покладистый"},{"u":"3","p":"1","en":"English-speaking","ru":"англоговорящий"},{"u":"3","p":"1","en":"experiment","ru":"эксперимент"},{"u":"3","p":"1","en":"expert","ru":"эксперт"},{"u":"3","p":"1","en":"fail","ru":"провалиться; проваливаться"},{"u":"3","p":"1","en":"five-star","ru":"пятизвёздочный"},{"u":"3","p":"1","en":"flip","ru":"переворачивать; подбрасывать"},{"u":"3","p":"1","en":"full-time","ru":"полный рабочий день"},{"u":"3","p":"1","en":"give in","ru":"сдаваться; уступать"},{"u":"3","p":"1","en":"good-looking","ru":"красивый"},{"u":"3","p":"1","en":"hobby","ru":"хобби"},{"u":"3","p":"1","en":"instructor","ru":"инструктор"},{"u":"3","p":"1","en":"intelligence","ru":"интеллект"},{"u":"3","p":"1","en":"leader","ru":"лидер"},{"u":"3","p":"1","en":"left-handed","ru":"левша; левшовый"},{"u":"3","p":"1","en":"make an effort","ru":"стараться; прилагать усилия"},{"u":"3","p":"1","en":"manage","ru":"справляться; управлять"},{"u":"3","p":"2","en":"marshmallow","ru":"маршмеллоу; зефир"},{"u":"3","p":"2","en":"measure","ru":"измерять"},{"u":"3","p":"2","en":"multitask","ru":"заниматься несколькими делами сразу"},{"u":"3","p":"2","en":"observe","ru":"наблюдать"},{"u":"3","p":"2","en":"on impulse","ru":"под влиянием момента"},{"u":"3","p":"2","en":"overcook","ru":"пересушить; переварить"},{"u":"3","p":"2","en":"overpriced","ru":"завышенный в цене"},{"u":"3","p":"2","en":"panel","ru":"группа экспертов; панель"},{"u":"3","p":"2","en":"participant","ru":"участник"},{"u":"3","p":"2","en":"passion","ru":"страсть"},{"u":"3","p":"2","en":"patient","ru":"терпеливый; пациент"},{"u":"3","p":"2","en":"pleasant","ru":"приятный"},{"u":"3","p":"2","en":"polite","ru":"вежливый"},{"u":"3","p":"2","en":"precise","ru":"точный"},{"u":"3","p":"2","en":"professional","ru":"профессиональный; профессионал"},{"u":"3","p":"2","en":"resist","ru":"сопротивляться"},{"u":"3","p":"2","en":"respect","ru":"уважать; уважение"},{"u":"3","p":"2","en":"responsibility","ru":"ответственность"},{"u":"3","p":"2","en":"result","ru":"результат"},{"u":"3","p":"2","en":"reward","ru":"награда; вознаграждать"},{"u":"3","p":"2","en":"rise to the challenge","ru":"справиться с вызовом"},{"u":"3","p":"2","en":"rub","ru":"тереть"},{"u":"3","p":"2","en":"sandpaper","ru":"наждачная бумага"},{"u":"3","p":"2","en":"schedule","ru":"расписание"},{"u":"3","p":"2","en":"scientifically proven","ru":"научно доказанный"},{"u":"3","p":"2","en":"second-hand","ru":"подержанный"},{"u":"3","p":"2","en":"set goals","ru":"ставить цели"},{"u":"3","p":"2","en":"shocked","ru":"шокированный"},{"u":"3","p":"2","en":"short-sleeved","ru":"с коротким рукавом"},{"u":"3","p":"2","en":"spare","ru":"лишний; запасной"},{"u":"3","p":"2","en":"stress","ru":"стресс; подчёркивать"},{"u":"3","p":"2","en":"stressful","ru":"стрессовый"},{"u":"3","p":"2","en":"sweat","ru":"потеть; пот"},{"u":"3","p":"2","en":"symptom","ru":"симптом"},{"u":"3","p":"3","en":"take part in (something)","ru":"участвовать (в чём-либо)"},{"u":"3","p":"3","en":"take responsibility","ru":"брать на себя ответственность"},{"u":"3","p":"3","en":"talk","ru":"разговор; говорить"},{"u":"3","p":"3","en":"technique","ru":"техника; приём"},{"u":"3","p":"3","en":"temptation","ru":"соблазн"},{"u":"3","p":"3","en":"think ahead","ru":"думать наперёд"},{"u":"3","p":"3","en":"turn up","ru":"появиться; прийти"},{"u":"3","p":"3","en":"van","ru":"фургон"},{"u":"3","p":"3","en":"work hard","ru":"усердно работать"},{"u":"3","p":"3","en":"work well under pressure","ru":"хорошо работать в стрессовой обстановке"},{"u":"4","p":"1","en":"all over the place","ru":"повсюду"},{"u":"4","p":"1","en":"artificial","ru":"искусственный"},{"u":"4","p":"1","en":"aspiring","ru":"начинающий; стремящийся стать"},{"u":"4","p":"1","en":"canal","ru":"канал"},{"u":"4","p":"1","en":"communal","ru":"общий; общественный"},{"u":"4","p":"1","en":"chemical","ru":"химическое вещество; химический"},{"u":"4","p":"1","en":"cliff","ru":"утёс; скала"},{"u":"4","p":"1","en":"cubicle","ru":"кабинка"},{"u":"4","p":"1","en":"culture","ru":"культура"},{"u":"4","p":"1","en":"feel at home","ru":"чувствовать себя как дома"},{"u":"4","p":"1","en":"ferry service","ru":"паромное сообщение"},{"u":"4","p":"1","en":"get rid of (something)","ru":"избавиться (от чего-либо)"},{"u":"4","p":"1","en":"give off","ru":"выделять; испускать"},{"u":"4","p":"1","en":"globalization","ru":"глобализация"},{"u":"4","p":"1","en":"greenery","ru":"зелень; растительность"},{"u":"4","p":"1","en":"historic","ru":"исторический"},{"u":"4","p":"1","en":"hoarder","ru":"человек, который всё копит"},{"u":"4","p":"1","en":"inhabitant","ru":"житель"},{"u":"4","p":"1","en":"inland","ru":"во внутренних районах; внутренний"},{"u":"4","p":"1","en":"know (someone/something) like the back of your hand","ru":"знать как свои пять пальцев"},{"u":"4","p":"1","en":"landscape","ru":"ландшафт; пейзаж"},{"u":"4","p":"1","en":"luxury","ru":"роскошь"},{"u":"4","p":"1","en":"mainland","ru":"материк"},{"u":"4","p":"1","en":"make room","ru":"освободить место"},{"u":"4","p":"1","en":"make yourself at home","ru":"чувствуйте себя как дома"},{"u":"4","p":"1","en":"miles from anywhere","ru":"глушь; далеко от всего"},{"u":"4","p":"1","en":"mixture","ru":"смесь"},{"u":"4","p":"1","en":"neat and tidy","ru":"аккуратный; опрятный"},{"u":"4","p":"1","en":"ocean","ru":"океан"},{"u":"4","p":"2","en":"packed in like sardines","ru":"битком набитый"},{"u":"4","p":"2","en":"peak","ru":"пик; вершина"},{"u":"4","p":"2","en":"permanent","ru":"постоянный"},{"u":"4","p":"2","en":"pool","ru":"бассейн; пруд"},{"u":"4","p":"2","en":"reed","ru":"тростник"},{"u":"4","p":"2","en":"rock","ru":"скала; камень"},{"u":"4","p":"2","en":"run out of (something)","ru":"закончиться (у чего-либо)"},{"u":"4","p":"2","en":"scenery","ru":"пейзаж; природа"},{"u":"4","p":"2","en":"season","ru":"сезон"},{"u":"4","p":"2","en":"set off","ru":"отправляться"},{"u":"4","p":"2","en":"settle down","ru":"обосноваться; устроиться"},{"u":"4","p":"2","en":"solar power","ru":"солнечная энергия"},{"u":"4","p":"2","en":"steep","ru":"крутой"},{"u":"4","p":"2","en":"suburb","ru":"пригород"},{"u":"4","p":"2","en":"sunset","ru":"закат"},{"u":"4","p":"2","en":"sunshine","ru":"солнечный свет"},{"u":"4","p":"2","en":"trail","ru":"тропа"},{"u":"4","p":"2","en":"valley","ru":"долина"},{"u":"4","p":"2","en":"wave","ru":"волна; махать"},{"u":"5","p":"1","en":"absolutely","ru":"абсолютно"},{"u":"5","p":"1","en":"accessible","ru":"доступный"},{"u":"5","p":"1","en":"action film","ru":"боевик"},{"u":"5","p":"1","en":"action hero","ru":"герой боевика"},{"u":"5","p":"1","en":"addicted","ru":"зависимый; фанатеющий"},{"u":"5","p":"1","en":"amusing","ru":"забавный"},{"u":"5","p":"1","en":"animated","ru":"мультипликационный; оживлённый"},{"u":"5","p":"1","en":"app","ru":"приложение"},{"u":"5","p":"1","en":"appeal","ru":"привлекать; привлекательность"},{"u":"5","p":"1","en":"astonishing","ru":"поразительный"},{"u":"5","p":"1","en":"atmosphere","ru":"атмосфера"},{"u":"5","p":"1","en":"authentic","ru":"подлинный"},{"u":"5","p":"1","en":"banker","ru":"банкир"},{"u":"5","p":"1","en":"be based on","ru":"основываться на"},{"u":"5","p":"1","en":"brilliant","ru":"блестящий"},{"u":"5","p":"1","en":"cast","ru":"актёрский состав; бросать"},{"u":"5","p":"1","en":"character","ru":"персонаж; характер"},{"u":"5","p":"1","en":"chat","ru":"болтать; разговор"},{"u":"5","p":"1","en":"classic","ru":"классика; классический"},{"u":"5","p":"1","en":"clip","ru":"отрывок; клип"},{"u":"5","p":"1","en":"dash","ru":"бросаться; мчаться; тире"},{"u":"5","p":"1","en":"dear","ru":"дорогой"},{"u":"5","p":"1","en":"despite","ru":"несмотря на"},{"u":"5","p":"1","en":"difficult","ru":"трудный"},{"u":"5","p":"1","en":"disappointing","ru":"разочаровывающий"},{"u":"5","p":"1","en":"disturbing","ru":"тревожащий"},{"u":"5","p":"1","en":"documentary","ru":"документальный фильм"},{"u":"5","p":"1","en":"dreadful","ru":"ужасный"},{"u":"5","p":"1","en":"entertaining","ru":"развлекательный"},{"u":"5","p":"1","en":"essentially","ru":"по сути"},{"u":"5","p":"1","en":"exhibition","ru":"выставка"},{"u":"5","p":"2","en":"falsely","ru":"ложно"},{"u":"5","p":"2","en":"fan","ru":"фанат"},{"u":"5","p":"2","en":"fantasize","ru":"фантазировать"},{"u":"5","p":"2","en":"genre","ru":"жанр"},{"u":"5","p":"2","en":"grow apart","ru":"отдаляться друг от друга"},{"u":"5","p":"2","en":"hand-held","ru":"ручной; портативный"},{"u":"5","p":"2","en":"harmless","ru":"безвредный"},{"u":"5","p":"2","en":"hope","ru":"надежда; надеяться"},{"u":"5","p":"2","en":"incredibly","ru":"невероятно"},{"u":"5","p":"2","en":"infuriating","ru":"бесящий"},{"u":"5","p":"2","en":"interact","ru":"взаимодействовать"},{"u":"5","p":"2","en":"irritation","ru":"раздражение"},{"u":"5","p":"2","en":"login","ru":"вход в систему; войти"},{"u":"5","p":"2","en":"magically","ru":"волшебным образом"},{"u":"5","p":"2","en":"middle class","ru":"средний класс"},{"u":"5","p":"2","en":"military","ru":"военный"},{"u":"5","p":"2","en":"modern-day","ru":"современный"},{"u":"5","p":"2","en":"moving","ru":"трогательный; движущийся"},{"u":"5","p":"2","en":"mug","ru":"кружка; ограбить"},{"u":"5","p":"2","en":"novel","ru":"роман"},{"u":"5","p":"2","en":"on balance","ru":"в целом; по здравом размышлении"},{"u":"5","p":"2","en":"original","ru":"оригинальный; оригинал"},{"u":"5","p":"2","en":"performance","ru":"выступление; представление"},{"u":"5","p":"2","en":"plot","ru":"сюжет"},{"u":"5","p":"2","en":"post","ru":"публиковать; пост"},{"u":"5","p":"2","en":"pothole","ru":"выбоина"},{"u":"5","p":"2","en":"predictable","ru":"предсказуемый"},{"u":"5","p":"2","en":"prisoner","ru":"заключённый"},{"u":"5","p":"2","en":"recommend","ru":"рекомендовать"},{"u":"5","p":"2","en":"release","ru":"выпускать; выпуск"},{"u":"5","p":"2","en":"remake","ru":"ремейк"},{"u":"5","p":"2","en":"result in","ru":"привести к"},{"u":"5","p":"3","en":"romcom","ru":"романтическая комедия"},{"u":"5","p":"3","en":"salsa","ru":"сальса"},{"u":"5","p":"3","en":"scene","ru":"сцена; эпизод"},{"u":"5","p":"3","en":"set out","ru":"отправиться; изложить"},{"u":"5","p":"3","en":"showcase","ru":"показывать; витрина"},{"u":"5","p":"3","en":"silly","ru":"глупый"},{"u":"5","p":"3","en":"skyscraper","ru":"небоскрёб"},{"u":"5","p":"3","en":"slavery","ru":"рабство"},{"u":"5","p":"3","en":"soundtrack","ru":"саундтрек"},{"u":"5","p":"3","en":"special effects","ru":"спецэффекты"},{"u":"5","p":"3","en":"stunning","ru":"потрясающий"},{"u":"5","p":"3","en":"sweep (across)","ru":"проноситься (по)"},{"u":"5","p":"3","en":"tend","ru":"иметь тенденцию; склоняться"},{"u":"5","p":"3","en":"terrific","ru":"великолепный"},{"u":"5","p":"3","en":"terrifying","ru":"ужасающий"},{"u":"5","p":"3","en":"thriller","ru":"триллер"},{"u":"5","p":"3","en":"topic","ru":"тема"},{"u":"5","p":"3","en":"unexciting","ru":"скучный"},{"u":"5","p":"3","en":"violent","ru":"жестокий"},{"u":"5","p":"3","en":"voice","ru":"голос; озвучивать"},{"u":"5","p":"3","en":"vote","ru":"голосовать; голос"},{"u":"5","p":"3","en":"world-wide","ru":"всемирный"},{"u":"6","p":"1","en":"accident","ru":"несчастный случай; авария"},{"u":"6","p":"1","en":"artificially","ru":"искусственно"},{"u":"6","p":"1","en":"at speed","ru":"на большой скорости"},{"u":"6","p":"1","en":"automatically","ru":"автоматически"},{"u":"6","p":"1","en":"basically","ru":"в основном; по сути"},{"u":"6","p":"1","en":"brake","ru":"тормоз; тормозить"},{"u":"6","p":"1","en":"cheerful","ru":"весёлый"},{"u":"6","p":"1","en":"climate change","ru":"изменение климата"},{"u":"6","p":"1","en":"cloud seeding","ru":"засев облаков"},{"u":"6","p":"1","en":"commute","ru":"ездить на работу"},{"u":"6","p":"1","en":"confirm","ru":"подтверждать"},{"u":"6","p":"1","en":"contract","ru":"контракт"},{"u":"6","p":"1","en":"correspondent","ru":"корреспондент"},{"u":"6","p":"1","en":"crew","ru":"экипаж; команда"},{"u":"6","p":"1","en":"crop","ru":"урожай; культура"},{"u":"6","p":"1","en":"decrease","ru":"уменьшаться; уменьшение"},{"u":"6","p":"1","en":"disability","ru":"инвалидность"},{"u":"6","p":"1","en":"driverless","ru":"беспилотный"},{"u":"6","p":"1","en":"driving test","ru":"экзамен на права"},{"u":"6","p":"1","en":"drone","ru":"дрон"},{"u":"6","p":"1","en":"drought","ru":"засуха"},{"u":"6","p":"1","en":"dusty","ru":"пыльный"},{"u":"6","p":"1","en":"explore","ru":"исследовать"},{"u":"6","p":"1","en":"extreme","ru":"экстремальный"},{"u":"6","p":"1","en":"fire","ru":"огонь; уволить"},{"u":"6","p":"1","en":"heatwave","ru":"волна жары"},{"u":"6","p":"1","en":"helpless","ru":"беспомощный"},{"u":"6","p":"1","en":"imaginative","ru":"творческий; с богатым воображением"},{"u":"6","p":"1","en":"in charge","ru":"ответственный; за главного"},{"u":"6","p":"2","en":"in control","ru":"под контролем"},{"u":"6","p":"2","en":"increase","ru":"увеличивать(ся); рост"},{"u":"6","p":"2","en":"injure","ru":"ранить; травмировать"},{"u":"6","p":"2","en":"instant messaging","ru":"мгновенный обмен сообщениями"},{"u":"6","p":"2","en":"interrupt","ru":"прерывать"},{"u":"6","p":"2","en":"junction","ru":"перекрёсток"},{"u":"6","p":"2","en":"landslide","ru":"оползень"},{"u":"6","p":"2","en":"lane","ru":"полоса движения; переулок"},{"u":"6","p":"2","en":"meteorological","ru":"метеорологический"},{"u":"6","p":"2","en":"motorway","ru":"автомагистраль"},{"u":"6","p":"2","en":"musical","ru":"мюзикл; музыкальный"},{"u":"6","p":"2","en":"nowadays","ru":"в наши дни"},{"u":"6","p":"2","en":"overtake","ru":"обгонять"},{"u":"6","p":"2","en":"park","ru":"парковать; парк"},{"u":"6","p":"2","en":"possession","ru":"владение; имущество"},{"u":"6","p":"2","en":"practical","ru":"практичный"},{"u":"6","p":"2","en":"prevent","ru":"предотвращать"},{"u":"6","p":"2","en":"protect","ru":"защищать"},{"u":"6","p":"2","en":"pulse","ru":"пульс"},{"u":"6","p":"2","en":"rainfall","ru":"количество осадков"},{"u":"6","p":"2","en":"replaceable","ru":"заменимый"},{"u":"6","p":"2","en":"seasonal","ru":"сезонный"},{"u":"6","p":"2","en":"shortage","ru":"нехватка"},{"u":"6","p":"2","en":"skill","ru":"навык"},{"u":"6","p":"2","en":"slip out","ru":"выскользнуть; вырваться (о словах)"},{"u":"6","p":"2","en":"sociable","ru":"общительный"},{"u":"6","p":"2","en":"social","ru":"социальный"},{"u":"6","p":"2","en":"speed limit","ru":"ограничение скорости"},{"u":"6","p":"2","en":"steering wheel","ru":"руль"},{"u":"6","p":"2","en":"traditional","ru":"традиционный"},{"u":"6","p":"2","en":"traffic jam","ru":"пробка"},{"u":"6","p":"2","en":"tropical","ru":"тропический"},{"u":"6","p":"3","en":"unemployable","ru":"неспособный к трудоустройству"},{"u":"6","p":"3","en":"wages","ru":"зарплата"},{"u":"6","p":"3","en":"washable","ru":"стираемый; моющийся"},{"u":"6","p":"3","en":"weather pattern","ru":"погодная закономерность"},{"u":"7","p":"1","en":"accommodation","ru":"жильё"},{"u":"7","p":"1","en":"advertisement","ru":"реклама"},{"u":"7","p":"1","en":"ambition","ru":"амбиция; честолюбие"},{"u":"7","p":"1","en":"ambitious","ru":"амбициозный"},{"u":"7","p":"1","en":"anthropologist","ru":"антрополог"},{"u":"7","p":"1","en":"applicant","ru":"кандидат; соискатель"},{"u":"7","p":"1","en":"apply","ru":"подавать заявку; применять"},{"u":"7","p":"1","en":"aspect","ru":"аспект; сторона"},{"u":"7","p":"1","en":"assistant manager","ru":"помощник менеджера"},{"u":"7","p":"1","en":"attend","ru":"посещать"},{"u":"7","p":"1","en":"attitude","ru":"отношение"},{"u":"7","p":"1","en":"award","ru":"награда; награждать"},{"u":"7","p":"1","en":"behaviour","ru":"поведение"},{"u":"7","p":"1","en":"blame","ru":"винить; вина"},{"u":"7","p":"1","en":"blogger","ru":"блогер"},{"u":"7","p":"1","en":"branch","ru":"филиал; ветвь"},{"u":"7","p":"1","en":"bright","ru":"умный; яркий"},{"u":"7","p":"1","en":"bubbly","ru":"жизнерадостный; искристый"},{"u":"7","p":"1","en":"champion","ru":"чемпион; защищать"},{"u":"7","p":"1","en":"climb","ru":"подниматься; взбираться"},{"u":"7","p":"1","en":"concentrate","ru":"концентрироваться"},{"u":"7","p":"1","en":"creative","ru":"творческий"},{"u":"7","p":"1","en":"criticize","ru":"критиковать"},{"u":"7","p":"1","en":"customer care","ru":"обслуживание клиентов"},{"u":"7","p":"1","en":"decision maker","ru":"лицо, принимающее решения"},{"u":"7","p":"1","en":"determined","ru":"решительный"},{"u":"7","p":"1","en":"director","ru":"директор; режиссёр"},{"u":"7","p":"1","en":"disagreement","ru":"разногласие"},{"u":"7","p":"2","en":"dragonfly","ru":"стрекоза"},{"u":"7","p":"2","en":"early","ru":"ранний"},{"u":"7","p":"2","en":"entertainment","ru":"развлечение"},{"u":"7","p":"2","en":"entrance","ru":"вход"},{"u":"7","p":"2","en":"environmental","ru":"экологический"},{"u":"7","p":"2","en":"executive","ru":"руководитель"},{"u":"7","p":"2","en":"expanding","ru":"расширяющийся"},{"u":"7","p":"2","en":"failure","ru":"провал; неудача"},{"u":"7","p":"2","en":"fame","ru":"слава"},{"u":"7","p":"2","en":"famous","ru":"знаменитый"},{"u":"7","p":"2","en":"festival","ru":"фестиваль"},{"u":"7","p":"2","en":"flock","ru":"стая; собираться толпой"},{"u":"7","p":"2","en":"get to the top","ru":"добиться успеха"},{"u":"7","p":"2","en":"high achiever","ru":"человек, добивающийся высоких результатов"},{"u":"7","p":"2","en":"humanitarian","ru":"гуманитарный"},{"u":"7","p":"2","en":"innovative","ru":"инновационный"},{"u":"7","p":"2","en":"job satisfaction","ru":"удовлетворённость работой"},{"u":"7","p":"2","en":"lifestyle","ru":"образ жизни"},{"u":"7","p":"2","en":"lifetime","ru":"продолжительность жизни; всю жизнь"},{"u":"7","p":"2","en":"make progress","ru":"добиваться прогресса"},{"u":"7","p":"2","en":"make (someone) redundant","ru":"уволить (кого-либо) по сокращению"},{"u":"7","p":"2","en":"management","ru":"руководство; менеджмент"},{"u":"7","p":"2","en":"motivate","ru":"мотивировать"},{"u":"7","p":"2","en":"networking","ru":"нетворкинг; налаживание связей"},{"u":"7","p":"2","en":"obey","ru":"подчиняться"},{"u":"7","p":"2","en":"occupation","ru":"профессия; занятие"},{"u":"7","p":"2","en":"online community","ru":"онлайн-сообщество"},{"u":"7","p":"2","en":"overnight","ru":"за одну ночь; ночной"},{"u":"7","p":"2","en":"pattern","ru":"шаблон; закономерность"},{"u":"7","p":"2","en":"point of view","ru":"точка зрения"},{"u":"7","p":"2","en":"position","ru":"должность; позиция"},{"u":"7","p":"2","en":"procedure","ru":"процедура"},{"u":"7","p":"2","en":"producer","ru":"продюсер; производитель"},{"u":"7","p":"3","en":"prospects","ru":"перспективы"},{"u":"7","p":"3","en":"quality","ru":"качество"},{"u":"7","p":"3","en":"quit","ru":"бросить; уволиться"},{"u":"7","p":"3","en":"relaxed","ru":"расслабленный"},{"u":"7","p":"3","en":"relocation office","ru":"отдел переезда"},{"u":"7","p":"3","en":"rent-free","ru":"бесплатно (без арендной платы)"},{"u":"7","p":"3","en":"reputation","ru":"репутация"},{"u":"7","p":"3","en":"researcher","ru":"исследователь"},{"u":"7","p":"3","en":"retrain","ru":"переучиваться"},{"u":"7","p":"3","en":"rule","ru":"правило; управлять"},{"u":"7","p":"3","en":"school leaver's certificate","ru":"аттестат об окончании школы"},{"u":"7","p":"3","en":"sick","ru":"больной"},{"u":"7","p":"3","en":"skilled","ru":"квалифицированный"},{"u":"7","p":"3","en":"specialist","ru":"специалист"},{"u":"7","p":"3","en":"standard of living","ru":"уровень жизни"},{"u":"7","p":"3","en":"stay","ru":"оставаться"},{"u":"7","p":"3","en":"suited","ru":"подходящий"},{"u":"7","p":"3","en":"supervise","ru":"руководить; надзирать"},{"u":"7","p":"3","en":"take risks","ru":"рисковать"},{"u":"7","p":"3","en":"talented","ru":"талантливый"},{"u":"7","p":"3","en":"team leader","ru":"руководитель группы"},{"u":"7","p":"3","en":"temporary","ru":"временный"},{"u":"7","p":"3","en":"thoughtful","ru":"вдумчивый; внимательный"},{"u":"7","p":"3","en":"travel back in time","ru":"путешествовать во времени"},{"u":"7","p":"3","en":"treasured","ru":"драгоценный; дорогой"},{"u":"7","p":"3","en":"unbelievable","ru":"невероятный"},{"u":"7","p":"3","en":"unite","ru":"объединять"},{"u":"7","p":"3","en":"unskilled","ru":"неквалифицированный"},{"u":"7","p":"3","en":"up to date","ru":"современный; актуальный"},{"u":"7","p":"3","en":"value","ru":"ценить; ценность"},{"u":"7","p":"3","en":"visa","ru":"виза"},{"u":"7","p":"3","en":"well known","ru":"известный"},{"u":"7","p":"3","en":"wonder","ru":"чудо; интересоваться"},{"u":"7","p":"4","en":"work experience","ru":"опыт работы"},{"u":"7","p":"4","en":"working conditions","ru":"условия работы"},{"u":"7","p":"4","en":"working hours","ru":"рабочие часы"},{"u":"8","p":"1","en":"active","ru":"активный"},{"u":"8","p":"1","en":"adapt","ru":"адаптироваться"},{"u":"8","p":"1","en":"afraid","ru":"боящийся"},{"u":"8","p":"1","en":"appreciate","ru":"ценить; быть благодарным"},{"u":"8","p":"1","en":"appropriate","ru":"подходящий"},{"u":"8","p":"1","en":"audience","ru":"аудитория; публика"},{"u":"8","p":"1","en":"balanced","ru":"сбалансированный"},{"u":"8","p":"1","en":"be capable of","ru":"быть способным на"},{"u":"8","p":"1","en":"brave","ru":"храбрый"},{"u":"8","p":"1","en":"bring up","ru":"воспитывать"},{"u":"8","p":"1","en":"bully","ru":"издеваться; задира"},{"u":"8","p":"1","en":"burning","ru":"горящий; жгучий"},{"u":"8","p":"1","en":"casual","ru":"повседневный; неформальный"},{"u":"8","p":"1","en":"childcare","ru":"уход за детьми"},{"u":"8","p":"1","en":"cost of living","ru":"стоимость жизни"},{"u":"8","p":"1","en":"cosy","ru":"уютный"},{"u":"8","p":"1","en":"craft","ru":"ремесло; мастерство"},{"u":"8","p":"1","en":"cultural","ru":"культурный"},{"u":"8","p":"1","en":"culture shock","ru":"культурный шок"},{"u":"8","p":"1","en":"disadvantage","ru":"недостаток; невыгодное положение"},{"u":"8","p":"1","en":"disaster","ru":"катастрофа"},{"u":"8","p":"1","en":"dress code","ru":"дресс-код"},{"u":"8","p":"1","en":"economy","ru":"экономика"},{"u":"8","p":"1","en":"educated","ru":"образованный"},{"u":"8","p":"1","en":"embarrassed","ru":"смущённый"},{"u":"8","p":"1","en":"explode","ru":"взрываться"},{"u":"8","p":"1","en":"extremely","ru":"крайне"},{"u":"8","p":"1","en":"eye contact","ru":"зрительный контакт"},{"u":"8","p":"2","en":"factor","ru":"фактор"},{"u":"8","p":"2","en":"fear","ru":"страх; бояться"},{"u":"8","p":"2","en":"firefighter","ru":"пожарный"},{"u":"8","p":"2","en":"first aid","ru":"первая помощь"},{"u":"8","p":"2","en":"formal","ru":"официальный; формальный"},{"u":"8","p":"2","en":"gender","ru":"пол; гендер"},{"u":"8","p":"2","en":"generous","ru":"щедрый"},{"u":"8","p":"2","en":"genius","ru":"гений"},{"u":"8","p":"2","en":"have no problem (doing)","ru":"не иметь ничего против (делать)"},{"u":"8","p":"2","en":"healthcare","ru":"здравоохранение"},{"u":"8","p":"2","en":"hero","ru":"герой"},{"u":"8","p":"2","en":"heroic","ru":"героический"},{"u":"8","p":"2","en":"heroically","ru":"героически"},{"u":"8","p":"2","en":"heroism","ru":"героизм"},{"u":"8","p":"2","en":"immediate","ru":"немедленный"},{"u":"8","p":"2","en":"knitting","ru":"вязание"},{"u":"8","p":"2","en":"lottery","ru":"лотерея"},{"u":"8","p":"2","en":"method","ru":"метод"},{"u":"8","p":"2","en":"misbehave","ru":"плохо себя вести"},{"u":"8","p":"2","en":"misjudge","ru":"неверно оценить"},{"u":"8","p":"2","en":"misunderstand","ru":"неправильно понять"},{"u":"8","p":"2","en":"neighbour","ru":"сосед"},{"u":"8","p":"2","en":"overspend","ru":"перетратить"},{"u":"8","p":"2","en":"physical activity","ru":"физическая активность"},{"u":"8","p":"2","en":"poverty","ru":"бедность"},{"u":"8","p":"2","en":"pram","ru":"детская коляска"},{"u":"8","p":"2","en":"rarely","ru":"редко"},{"u":"8","p":"2","en":"reappear","ru":"снова появляться"},{"u":"8","p":"2","en":"reasonable","ru":"разумный"},{"u":"8","p":"3","en":"redecorate","ru":"делать ремонт; переоформлять"},{"u":"8","p":"3","en":"renewable","ru":"возобновляемый"},{"u":"8","p":"3","en":"reschedule","ru":"перенести на другое время"},{"u":"8","p":"3","en":"rescue","ru":"спасать; спасение"},{"u":"8","p":"3","en":"risk","ru":"рисковать; риск"},{"u":"8","p":"3","en":"risky","ru":"рискованный"},{"u":"8","p":"3","en":"selfish","ru":"эгоистичный"},{"u":"8","p":"3","en":"sensible","ru":"разумный"},{"u":"8","p":"3","en":"society","ru":"общество"},{"u":"8","p":"3","en":"spectacularly","ru":"эффектно; потрясающе"},{"u":"8","p":"3","en":"stay up","ru":"не ложиться спать"},{"u":"8","p":"3","en":"suffer","ru":"страдать"},{"u":"8","p":"3","en":"superstar","ru":"суперзвезда"},{"u":"8","p":"3","en":"undercook","ru":"недоварить"},{"u":"8","p":"3","en":"underdressed","ru":"недостаточно одетый"},{"u":"8","p":"3","en":"volunteer","ru":"вызываться добровольцем; доброволец"},{"u":"9","p":"1","en":"abstract","ru":"абстрактный"},{"u":"9","p":"1","en":"background","ru":"фон"},{"u":"9","p":"1","en":"beauty","ru":"красота"},{"u":"9","p":"1","en":"bird-watching","ru":"наблюдение за птицами"},{"u":"9","p":"1","en":"blob","ru":"пятно; капля"},{"u":"9","p":"1","en":"blonde","ru":"блондинка; светлый"},{"u":"9","p":"1","en":"campaign","ru":"кампания"},{"u":"9","p":"1","en":"clean-shaven","ru":"гладко выбритый"},{"u":"9","p":"1","en":"closed off","ru":"замкнутый"},{"u":"9","p":"1","en":"come across","ru":"наткнуться на"},{"u":"9","p":"1","en":"come up with","ru":"придумать"},{"u":"9","p":"1","en":"consider","ru":"рассматривать; считать"},{"u":"9","p":"1","en":"curly","ru":"вьющийся"},{"u":"9","p":"1","en":"curtain","ru":"штора; занавеска"},{"u":"9","p":"1","en":"curve","ru":"кривая; изгиб"},{"u":"9","p":"1","en":"database","ru":"база данных"},{"u":"9","p":"1","en":"description","ru":"описание"},{"u":"9","p":"1","en":"detailed","ru":"подробный"},{"u":"9","p":"1","en":"devote","ru":"посвящать"},{"u":"9","p":"1","en":"double chin","ru":"второй подбородок"},{"u":"9","p":"1","en":"dye","ru":"красить (волосы)"},{"u":"9","p":"1","en":"emotion","ru":"эмоция"},{"u":"9","p":"1","en":"express","ru":"выражать"},{"u":"9","p":"1","en":"eyebrow","ru":"бровь"},{"u":"9","p":"1","en":"eyelash","ru":"ресница"},{"u":"9","p":"1","en":"foreground","ru":"передний план"},{"u":"9","p":"1","en":"fringe","ru":"чёлка"},{"u":"9","p":"1","en":"go bald","ru":"облысеть"},{"u":"9","p":"1","en":"grey","ru":"седой; серый"},{"u":"9","p":"1","en":"historical","ru":"исторический"},{"u":"9","p":"1","en":"honestly","ru":"честно"},{"u":"9","p":"2","en":"hunt","ru":"охотиться; охота"},{"u":"9","p":"2","en":"irritated","ru":"раздражённый"},{"u":"9","p":"2","en":"look forward to","ru":"с нетерпением ждать"},{"u":"9","p":"2","en":"look up","ru":"искать (в словаре)"},{"u":"9","p":"2","en":"make out","ru":"разглядеть; понимать"},{"u":"9","p":"2","en":"moustache","ru":"усы"},{"u":"9","p":"2","en":"mysterious","ru":"таинственный"},{"u":"9","p":"2","en":"old-fashioned","ru":"старомодный"},{"u":"9","p":"2","en":"overweight","ru":"с избыточным весом"},{"u":"9","p":"2","en":"phenomenon","ru":"явление"},{"u":"9","p":"2","en":"portrait","ru":"портрет"},{"u":"9","p":"2","en":"projector","ru":"проектор"},{"u":"9","p":"2","en":"put up","ru":"вешать; размещать"},{"u":"9","p":"2","en":"reflect","ru":"отражать; размышлять"},{"u":"9","p":"2","en":"reflection","ru":"отражение"},{"u":"9","p":"2","en":"seem","ru":"казаться"},{"u":"9","p":"2","en":"seemingly","ru":"по-видимому"},{"u":"9","p":"2","en":"self-described","ru":"самопровозглашённый"},{"u":"9","p":"2","en":"shoulder-length","ru":"до плеч"},{"u":"9","p":"2","en":"side by side","ru":"бок о бок"},{"u":"9","p":"2","en":"skate","ru":"кататься на коньках"},{"u":"9","p":"2","en":"sketch","ru":"набросок"},{"u":"9","p":"2","en":"slim","ru":"стройный"},{"u":"9","p":"2","en":"spiky","ru":"колючий; торчащий"},{"u":"9","p":"2","en":"stranger","ru":"незнакомец"},{"u":"9","p":"2","en":"stubble","ru":"щетина"},{"u":"9","p":"2","en":"suit","ru":"подходить; костюм"},{"u":"9","p":"2","en":"tap","ru":"кран; постукивать"},{"u":"9","p":"2","en":"tape recorder","ru":"магнитофон"},{"u":"9","p":"2","en":"teapot","ru":"чайник"},{"u":"9","p":"2","en":"wear","ru":"носить (одежду)"},{"u":"9","p":"2","en":"well-built","ru":"крепкого телосложения"},{"u":"10","p":"1","en":"abundance","ru":"изобилие"},{"u":"10","p":"1","en":"academically","ru":"академически; в учёбе"},{"u":"10","p":"1","en":"athlete","ru":"спортсмен"},{"u":"10","p":"1","en":"attraction","ru":"достопримечательность; притяжение"},{"u":"10","p":"1","en":"back","ru":"поддерживать; спина"},{"u":"10","p":"1","en":"bank loan","ru":"банковский кредит"},{"u":"10","p":"1","en":"boutique hotel","ru":"бутик-отель"},{"u":"10","p":"1","en":"break a record","ru":"побить рекорд"},{"u":"10","p":"1","en":"cheerleading","ru":"чирлидинг"},{"u":"10","p":"1","en":"compete","ru":"соревноваться"},{"u":"10","p":"1","en":"competitive","ru":"конкурентный"},{"u":"10","p":"1","en":"crowd-funding","ru":"краудфандинг"},{"u":"10","p":"1","en":"dancing","ru":"танцы"},{"u":"10","p":"1","en":"decade","ru":"десятилетие"},{"u":"10","p":"1","en":"destination","ru":"место назначения"},{"u":"10","p":"1","en":"demotivating","ru":"демотивирующий"},{"u":"10","p":"1","en":"district","ru":"район"},{"u":"10","p":"1","en":"dramatically","ru":"резко"},{"u":"10","p":"1","en":"dominate","ru":"доминировать"},{"u":"10","p":"1","en":"earplug","ru":"беруши"},{"u":"10","p":"1","en":"entrepreneur","ru":"предприниматель"},{"u":"10","p":"1","en":"event","ru":"событие"},{"u":"10","p":"1","en":"fashionable","ru":"модный"},{"u":"10","p":"1","en":"field","ru":"поле"},{"u":"10","p":"1","en":"figure","ru":"фигура; цифра"},{"u":"10","p":"1","en":"guarantee","ru":"гарантия; гарантировать"},{"u":"10","p":"2","en":"have a feeling","ru":"чувствовать; предчувствовать"},{"u":"10","p":"2","en":"have a go","ru":"попробовать"},{"u":"10","p":"2","en":"home stadium","ru":"домашний стадион"},{"u":"10","p":"2","en":"home team","ru":"домашняя команда"},{"u":"10","p":"2","en":"investment","ru":"инвестиция"},{"u":"10","p":"2","en":"investor","ru":"инвестор"},{"u":"10","p":"2","en":"magnificent","ru":"великолепный"},{"u":"10","p":"2","en":"manufacture","ru":"производить"},{"u":"10","p":"2","en":"must-see","ru":"обязательный к просмотру"},{"u":"10","p":"2","en":"nightclub","ru":"ночной клуб"},{"u":"10","p":"2","en":"non-competitive","ru":"некомпетитивный"},{"u":"10","p":"2","en":"open-air","ru":"открытый; на открытом воздухе"},{"u":"10","p":"2","en":"padded","ru":"мягкий; с подкладкой"},{"u":"10","p":"2","en":"pledge","ru":"обещать; обет"},{"u":"10","p":"2","en":"popularity","ru":"популярность"},{"u":"10","p":"2","en":"present","ru":"подарок; представлять"},{"u":"10","p":"2","en":"profit","ru":"прибыль"},{"u":"10","p":"2","en":"pull over","ru":"остановиться у обочины"},{"u":"10","p":"2","en":"raise","ru":"поднимать; повышать"},{"u":"10","p":"2","en":"referee","ru":"рефери; судья"},{"u":"10","p":"2","en":"renovate","ru":"ремонтировать; обновлять"},{"u":"10","p":"2","en":"resemble","ru":"напоминать внешне"},{"u":"10","p":"2","en":"riot","ru":"беспорядки"},{"u":"10","p":"2","en":"rugby","ru":"регби"},{"u":"10","p":"2","en":"run-down","ru":"запущенный; обветшалый"},{"u":"10","p":"2","en":"self-esteem","ru":"самооценка"},{"u":"10","p":"2","en":"service","ru":"обслуживание"},{"u":"10","p":"2","en":"set up","ru":"организовать; создать"},{"u":"10","p":"2","en":"short of cash","ru":"без денег"},{"u":"10","p":"3","en":"skyline","ru":"горизонт; силуэт города"},{"u":"10","p":"3","en":"sophisticated","ru":"утончённый; сложный"},{"u":"10","p":"3","en":"state-of-the-art","ru":"новейший; передовой"},{"u":"10","p":"3","en":"take a decision","ru":"принимать решение"},{"u":"10","p":"3","en":"take a risk","ru":"рисковать"},{"u":"10","p":"3","en":"take no notice of (someone/something)","ru":"не обращать внимания на"},{"u":"10","p":"3","en":"take (someone's) word for it","ru":"поверить на слово"},{"u":"10","p":"3","en":"take advantage of","ru":"воспользоваться"},{"u":"10","p":"3","en":"take care of","ru":"заботиться о"},{"u":"10","p":"3","en":"take out","ru":"вынимать; вывести"},{"u":"10","p":"3","en":"take turns","ru":"чередоваться"},{"u":"10","p":"3","en":"thrilling","ru":"захватывающий"},{"u":"10","p":"3","en":"tournament","ru":"турнир"},{"u":"10","p":"3","en":"trampolining","ru":"батут"},{"u":"10","p":"3","en":"trendy","ru":"модный"},{"u":"10","p":"3","en":"unheard of","ru":"неслыханный"},{"u":"10","p":"3","en":"unrealistic","ru":"нереалистичный"},{"u":"10","p":"3","en":"vibrant","ru":"яркий; живой"},{"u":"11","p":"1","en":"arrest","ru":"арестовать; арест"},{"u":"11","p":"1","en":"bandit","ru":"бандит"},{"u":"11","p":"1","en":"barefoot","ru":"босиком"},{"u":"11","p":"1","en":"blog","ru":"вести блог; блог"},{"u":"11","p":"1","en":"burglar","ru":"грабитель-взломщик"},{"u":"11","p":"1","en":"burglary","ru":"кража со взломом"},{"u":"11","p":"1","en":"candidate","ru":"кандидат"},{"u":"11","p":"1","en":"capture","ru":"захватывать; захват"},{"u":"11","p":"1","en":"careless","ru":"небрежный"},{"u":"11","p":"1","en":"change","ru":"менять(ся)"},{"u":"11","p":"1","en":"consequence","ru":"последствие"},{"u":"11","p":"1","en":"crash-land","ru":"совершить аварийную посадку"},{"u":"11","p":"1","en":"criminal","ru":"преступник; преступный"},{"u":"11","p":"1","en":"cyberbullying","ru":"кибербуллинг"},{"u":"11","p":"1","en":"delay","ru":"задержка; задерживать"},{"u":"11","p":"1","en":"escape","ru":"сбежать"},{"u":"11","p":"1","en":"extension","ru":"продление; расширение"},{"u":"11","p":"1","en":"fine","ru":"штраф; штрафовать; хороший"},{"u":"11","p":"1","en":"illegally","ru":"незаконно"},{"u":"11","p":"1","en":"inconvenience","ru":"неудобство"},{"u":"11","p":"1","en":"issue","ru":"вопрос; проблема; выпускать"},{"u":"11","p":"1","en":"insult","ru":"оскорблять; оскорбление"},{"u":"11","p":"1","en":"interaction","ru":"взаимодействие"},{"u":"11","p":"1","en":"light","ru":"свет; лёгкий"},{"u":"11","p":"1","en":"match","ru":"матч; подходить"},{"u":"11","p":"1","en":"nasty","ru":"противный; неприятный"},{"u":"11","p":"1","en":"outlaw","ru":"преступник вне закона; объявить вне закона"},{"u":"11","p":"1","en":"passionate","ru":"страстный"},{"u":"11","p":"1","en":"permission","ru":"разрешение"},{"u":"11","p":"1","en":"prison","ru":"тюрьма"},{"u":"11","p":"2","en":"punishment","ru":"наказание"},{"u":"11","p":"2","en":"regret","ru":"сожалеть; сожаление"},{"u":"11","p":"2","en":"reportedly","ru":"по сообщениям"},{"u":"11","p":"2","en":"rob","ru":"грабить"},{"u":"11","p":"2","en":"robber","ru":"грабитель"},{"u":"11","p":"2","en":"say (something) to (someone's) face","ru":"сказать кому-то прямо в лицо"},{"u":"11","p":"2","en":"sensation","ru":"ощущение; сенсация"},{"u":"11","p":"2","en":"sentence","ru":"приговор; предложение"},{"u":"11","p":"2","en":"spare","ru":"свободный; запасной"},{"u":"11","p":"2","en":"speak up","ru":"говорить громче; высказаться"},{"u":"11","p":"2","en":"square","ru":"площадь; квадратный"},{"u":"11","p":"2","en":"stolen","ru":"украденный"},{"u":"11","p":"2","en":"stop (someone) from (doing)","ru":"мешать (кому-то) что-то делать"},{"u":"11","p":"2","en":"submission","ru":"подача; представление"},{"u":"11","p":"2","en":"suspect","ru":"подозревать; подозреваемый"},{"u":"11","p":"2","en":"theft","ru":"кража"},{"u":"11","p":"2","en":"thief","ru":"вор"},{"u":"11","p":"2","en":"unfashionable","ru":"немодный"},{"u":"11","p":"2","en":"unintended","ru":"непреднамеренный"},{"u":"11","p":"2","en":"unprofessional","ru":"непрофессиональный"},{"u":"11","p":"2","en":"upload","ru":"загружать"},{"u":"11","p":"2","en":"upset","ru":"расстроенный; расстраивать"},{"u":"11","p":"2","en":"victim","ru":"жертва"},{"u":"11","p":"2","en":"violence","ru":"насилие"},{"u":"12","p":"1","en":"advert","ru":"реклама; объявление"},{"u":"12","p":"1","en":"associate","ru":"ассоциировать; связывать"},{"u":"12","p":"1","en":"billboard","ru":"рекламный щит"},{"u":"12","p":"1","en":"brand","ru":"бренд"},{"u":"12","p":"1","en":"bring (someone) round to","ru":"убедить (кого-то) принять"},{"u":"12","p":"1","en":"drawback","ru":"недостаток"},{"u":"12","p":"1","en":"effective","ru":"эффективный"},{"u":"12","p":"1","en":"homeless","ru":"бездомный"},{"u":"12","p":"1","en":"image","ru":"образ; имидж"},{"u":"12","p":"1","en":"influence","ru":"влиять; влияние"},{"u":"12","p":"1","en":"log on","ru":"войти в систему"},{"u":"12","p":"1","en":"make (someone) aware of","ru":"сделать (кого-то) осведомлённым о"},{"u":"12","p":"1","en":"major","ru":"важный; крупный"},{"u":"12","p":"1","en":"memorable","ru":"запоминающийся"},{"u":"12","p":"1","en":"menswear store","ru":"магазин мужской одежды"},{"u":"12","p":"1","en":"moth","ru":"мотылёк; моль"},{"u":"12","p":"1","en":"negotiator","ru":"переговорщик"},{"u":"12","p":"1","en":"news agenda","ru":"повестка новостей"},{"u":"12","p":"1","en":"objection","ru":"возражение"},{"u":"12","p":"1","en":"objective","ru":"цель; объективный"},{"u":"12","p":"1","en":"overcome","ru":"преодолевать"},{"u":"12","p":"1","en":"pass a law","ru":"принять закон"},{"u":"12","p":"1","en":"perspective","ru":"перспектива; точка зрения"},{"u":"12","p":"1","en":"persuasion","ru":"убеждение"},{"u":"12","p":"1","en":"persuasive","ru":"убедительный"},{"u":"12","p":"1","en":"point of view","ru":"точка зрения"},{"u":"12","p":"1","en":"poster","ru":"плакат"},{"u":"12","p":"1","en":"psychology","ru":"психология"},{"u":"12","p":"1","en":"rely on","ru":"полагаться на"},{"u":"12","p":"2","en":"slogan","ru":"лозунг"},{"u":"12","p":"2","en":"soft power","ru":"мягкая сила"},{"u":"12","p":"2","en":"stylish","ru":"стильный"},{"u":"12","p":"2","en":"switch off","ru":"выключать; отключиться"},{"u":"12","p":"2","en":"upset","ru":"расстроенный"},{"u":"12","p":"2","en":"win over","ru":"склонить на свою сторону"}];
+var DEFAULT_RULES = [[0,2,5],[3,4,4],[5,6,3],[7,8,2],[9,10,1],[11,null,0]];
+var KEY = "englishWords.v1";
+function defaultState(){
+  return { words: [], nextId: 1, rules: DEFAULT_RULES.map(function(r){ return {min:r[0], max:r[1], points:r[2]}; }),
+    sessions: [], nextSession: 1, active: null,
+    settings: { perSession: 10, shuffle: true, rate: 1, onboarded: false }, learnStep: 1 };
+}
+function clampRate(r){ r = Number(r); if (!isFinite(r)) r = 1; return Math.min(2, Math.max(0.2, Math.round(r*10)/10)); }
+var S;
+try {
+  var raw = JSON.parse(localStorage.getItem(KEY) || "null");
+  S = Object.assign(defaultState(), raw || {});
+  S.settings = Object.assign(defaultState().settings, S.settings || {});
+} catch (_) { S = defaultState(); }
+S.settings.rate = clampRate(S.settings.rate);
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (_) { toast("Не удалось сохранить данные в браузере"); } }
 
 // ===== Утилиты =====
-const $ = (s) => document.querySelector(s);
-const esc = (s) => String(s === null || s === undefined ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const sign = (n) => (n > 0 ? "+" : "") + n;
-const app = $("#app");
-function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; clearTimeout(toast.t); toast.t=setTimeout(()=>t.hidden=true,3000); }
-function view(html){ app.innerHTML = html; window.scrollTo(0,0); }
-function markTab(name){ document.querySelectorAll(".tabbar a").forEach(a => a.classList.toggle("active", a.dataset.tab === name)); }
-const wordsOf = (unit, part) => S.words.filter(w => w.unit === unit && (part === "*" || w.part === part));
-const unitsList = () => [...new Set(S.words.map(w => w.unit))].sort((a,b)=>a-b || a.localeCompare(b));
-const partsList = (unit) => [...new Set(S.words.filter(w=>w.unit===unit).map(w=>w.part))].sort();
-const nextId = () => S.nextId++;
-
-// Сравнение ответа: без регистра и знаков, ё=е, скобки и «;,/|» — варианты, небольшие опечатки допускаются.
-function norm(t){ return t.toLowerCase().replace(/ё/g,"е").replace(/[^а-яa-z0-9\s]/g," ").replace(/\s+/g," ").trim(); }
-function variants(ru){
-  const inner = []; const re = /\(([^)]*)\)/g; let mm; while((mm = re.exec(ru)) !== null) inner.push(mm[1]);
-  const outer = ru.replace(/\([^)]*\)/g," ; ");
-  return [...(outer+" ; "+inner.join(" ; ")).split(/[;,/|]/)].map(norm).filter(Boolean);
+function $(s){ return document.querySelector(s); }
+function esc(s){ return String(s === null || s === undefined ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+function sign(n){ return (n > 0 ? "+" : "") + n; }
+function toast(msg){ var t=$("#toast"); t.textContent=msg; t.hidden=false; clearTimeout(toast.t); toast.t=setTimeout(function(){ t.hidden=true; }, 3200); }
+function view(html){ $("#app").innerHTML = html; window.scrollTo(0,0); }
+function markTab(name){ var links = document.querySelectorAll(".tabbar a"); for (var i=0;i<links.length;i++){ links[i].classList.toggle("active", links[i].getAttribute("data-tab") === name); } }
+function go(name){ location.hash = name; }
+function nextId(){ return S.nextId++; }
+function unitSort(a, b){
+  var na = Number(a), nb = Number(b), fa = isFinite(na) && a !== "", fb = isFinite(nb) && b !== "";
+  if (fa && fb) return na - nb;
+  if (fa) return -1; if (fb) return 1;
+  return String(a).localeCompare(String(b));
 }
-function similar(a,b){
-  const m=a.length,n=b.length; if(!m||!n) return 0;
-  const d=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]); for(let j=0;j<=n;j++) d[0][j]=j;
-  for(let i=1;i<=m;i++) for(let j=1;j<=n;j++) d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
-  return 1 - d[m][n]/Math.max(m,n);
+function unitsList(){ var set = {}; S.words.forEach(function(w){ set[w.unit] = true; }); return Object.keys(set).sort(unitSort); }
+function partsList(unit){ var set = {}; S.words.forEach(function(w){ if (w.unit === unit) set[w.part] = true; }); return Object.keys(set).sort(); }
+function wordsOf(unit, part){ return S.words.filter(function(w){ return w.unit === unit && (part === "*" || w.part === part); }); }
+
+// ===== Проверка ответа: мягкая =====
+var STOP = ["как","и","в","во","на","с","со","не","о","об","по","к","ко","у","за","из","от","до","а","но","что","то","это","же","ли","бы","для","при","про","свой","свои","свою","себя","the","a","an","to","of"];
+function norm(t){ return String(t).toLowerCase().replace(/ё/g,"е").replace(/[^а-яa-z0-9\s]/g," ").replace(/\s+/g," ").trim(); }
+function toks(s){ var n = norm(s); return n ? n.split(" ") : []; }
+function core(s){ var t = toks(s), c = t.filter(function(x){ return STOP.indexOf(x) === -1; }); return c.length ? c : t; }
+function variants(ru){
+  var inner = [], re = /\(([^)]*)\)/g, m;
+  while ((m = re.exec(ru)) !== null) inner.push(m[1]);
+  var outer = ru.replace(/\([^)]*\)/g, " ; ");
+  return (outer + " ; " + inner.join(" ; ")).split(/[;,\/|]/).map(norm).filter(Boolean);
+}
+function similar(a, b){
+  var m=a.length, n=b.length; if(!m||!n) return 0;
+  var prev=[], cur=[], i, j;
+  for (j=0;j<=n;j++) prev[j]=j;
+  for (i=1;i<=m;i++){ cur=[i]; for (j=1;j<=n;j++){ cur[j]=Math.min(prev[j]+1, cur[j-1]+1, prev[j-1]+(a[i-1]===b[j-1]?0:1)); } prev=cur; }
+  return 1 - prev[n]/Math.max(m,n);
+}
+function tokMatch(a, b){
+  if (a === b) return true;
+  var m = Math.min(a.length, b.length);
+  if (m >= 5 && a.slice(0, m-2) === b.slice(0, m-2)) return true;   // окончания: пальцы / пальцев
+  return similar(a, b) >= 0.7;                                        // небольшие опечатки
 }
 function isCorrect(said, ru){
-  const a = norm(said); if(!a) return false;
-  return variants(ru).some(v => a===v || similar(a,v) >= 0.8);
+  var whole = norm(said); if (!whole) return false;
+  var said_core = core(said);
+  return variants(ru).some(function(v){
+    if (whole === v || similar(whole, v) >= 0.85) return true;
+    var vc = core(v); if (!vc.length) return false;
+    var matched = vc.filter(function(x){ return said_core.some(function(y){ return tokMatch(x, y); }); }).length;
+    if (vc.length === 1) return matched === 1;
+    return matched >= Math.ceil(vc.length / 2);
+  });
 }
 function rulePoints(errors){
-  const r = [...S.rules].sort((x,y)=>x.min-y.min).find(r => errors>=r.min && (r.max===null || errors<=r.max));
-  return r ? r.points : 0;
+  var sorted = S.rules.slice().sort(function(a,b){ return a.min - b.min; });
+  for (var i=0;i<sorted.length;i++){ var r=sorted[i]; if (errors >= r.min && (r.max === null || errors <= r.max)) return r.points; }
+  return 0;
 }
-function balance(){ return S.sessions.filter(s=>s.awarded).reduce((a,s)=>a+s.points,0); }
-function activeSession(){ return S.sessions.find(s => s.id === S.active) || null; }
+function balance(){ return S.sessions.filter(function(s){ return s.awarded; }).reduce(function(a,s){ return a + s.points; }, 0); }
+function activeSession(){ for (var i=0;i<S.sessions.length;i++){ if (S.sessions[i].id === S.active) return S.sessions[i]; } return null; }
 
 // ===== Тренировка (логика) =====
 function startSession(unit, part, mode, wordIds){
-  let ids = wordIds || wordsOf(unit, part).map(w=>w.id);
-  if(!wordIds && S.settings.shuffle) ids = ids.sort(()=>Math.random()-0.5);
-  if(!wordIds) ids = ids.slice(0, S.settings.perSession);
-  if(!ids.length) throw new Error("Нет слов для тренировки. Загрузите словарь или добавьте слова.");
-  const s = { id: S.nextSession++, unit, part, mode, wordIds: ids, index: 0, results: {}, points: 0, awarded: false, finished: false };
+  var ids = wordIds ? wordIds.slice() : wordsOf(unit, part).map(function(w){ return w.id; });
+  if (!wordIds && S.settings.shuffle) ids.sort(function(){ return Math.random() - 0.5; });
+  if (!wordIds) ids = ids.slice(0, S.settings.perSession);
+  if (!ids.length) throw new Error("Нет слов для тренировки. Загрузите словарь на вкладке «Ещё».");
+  var s = { id: S.nextSession++, unit: unit, part: part, mode: mode, wordIds: ids, index: 0, results: {}, points: 0, awarded: false, finished: false };
   S.sessions.push(s); S.active = s.id; save(); return s;
 }
-function currentWord(s){ const w = S.words.find(x => x.id === s.wordIds[s.index]); return w || null; }
-function record(s, wordId, correct, skipped){
-  s.results[wordId] = { correct, skipped, errors: correct ? 0 : 1 };
-  s.index++;
-}
+function currentWord(s){ for (var i=0;i<S.words.length;i++){ if (S.words[i].id === s.wordIds[s.index]) return S.words[i]; } return null; }
+function record(s, wordId, correct, skipped){ s.results[wordId] = { correct: correct, skipped: skipped, errors: correct ? 0 : 1 }; s.index++; }
 function sessionStats(s){
-  const vals = Object.values(s.results);
-  const correct = vals.filter(r=>r.correct && !r.skipped).length;
-  const skipped = vals.filter(r=>r.skipped).length;
-  const errors = vals.filter(r=>r.errors>0 && !r.skipped).length;
-  const wrongIds = Object.entries(s.results).filter(([,r])=>!r.correct || r.skipped).map(([id])=>Number(id));
-  return { total: s.wordIds.length, done: vals.length, correct, skipped, errors, wrongIds, percent: s.wordIds.length ? Math.round(100*correct/s.wordIds.length) : 0 };
+  var vals = Object.keys(s.results).map(function(k){ return s.results[k]; });
+  var correct = vals.filter(function(r){ return r.correct && !r.skipped; }).length;
+  var skipped = vals.filter(function(r){ return r.skipped; }).length;
+  var errors = vals.filter(function(r){ return r.errors > 0 && !r.skipped; }).length;
+  var wrongIds = Object.keys(s.results).filter(function(k){ var r=s.results[k]; return !r.correct || r.skipped; }).map(Number);
+  return { total: s.wordIds.length, done: vals.length, correct: correct, skipped: skipped, errors: errors, wrongIds: wrongIds,
+    percent: s.wordIds.length ? Math.round(100*correct/s.wordIds.length) : 0 };
 }
 function finishSession(s){
-  if(s.awarded) return 0;
-  const st = sessionStats(s);
-  // Баллы считаются по ошибкам и пропускам; повтор ошибок баллов не даёт; начисляем один раз.
+  if (s.awarded) return 0;
+  var st = sessionStats(s);
   s.points = s.mode === "train" ? rulePoints(st.errors + st.skipped) : 0;
   s.awarded = true; s.finished = true;
-  if(S.active === s.id) S.active = null;
+  if (S.active === s.id) S.active = null;
   save(); return s.points;
 }
 
 // ===== Голос =====
 function speakThen(text, done){
-  let finished = false;
-  const go = () => { if(!finished){ finished = true; done && done(); } };
-  if(!("speechSynthesis" in window)) { go(); return; }
+  var finished = false;
+  function go_(){ if (!finished){ finished = true; if (done) done(); } }
+  if (!("speechSynthesis" in window)) { go_(); return; }
   try {
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text); u.lang = "en-US"; u.rate = S.settings.rate;
-    u.onend = go; u.onerror = go;
+    var u = new SpeechSynthesisUtterance(text); u.lang = "en-US"; u.rate = S.settings.rate;
+    u.onend = go_; u.onerror = go_;
     speechSynthesis.speak(u);
-  } catch (_) { go(); return; }
-  setTimeout(go, 4000); // если браузер не сообщил об окончании, всё равно продолжаем
+  } catch (_) { go_(); return; }
+  setTimeout(go_, 4000 + 1500 / S.settings.rate);
 }
-const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-let rec = null;
+var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+var rec = null;
 function listen(onResult, onError){
-  if(!SR) return onError(new Error("Голосовой ввод не поддерживается этим браузером (нужен Chrome или Edge)"));
-  rec = new SR(); rec.lang="ru-RU"; rec.maxAlternatives=5; rec.interimResults=false;
-  rec.onresult = e => onResult([...e.results[0]].map(a=>a.transcript));
-  rec.onerror = e => onError(new Error(e.error==="not-allowed" ? "Нет доступа к микрофону" : "Не расслышал, повторите"));
-  rec.onnomatch = () => onError(new Error("Не расслышал, повторите"));
+  if (!SR) return onError(new Error("Голос в этом браузере не работает"));
+  rec = new SR(); rec.lang = "ru-RU"; rec.maxAlternatives = 5; rec.interimResults = false;
+  rec.onresult = function(e){ var out=[]; for (var i=0;i<e.results[0].length;i++) out.push(e.results[0][i].transcript); onResult(out); };
+  rec.onerror = function(e){ onError(new Error(e.error === "not-allowed" ? "Нет доступа к микрофону" : "Не расслышал")); };
+  rec.onnomatch = function(){ onError(new Error("Не расслышал")); };
   rec.start();
 }
-function stopListen(){ try { rec && rec.stop(); } catch(_){} rec = null; }
+function stopListen(){ try { if (rec) rec.stop(); } catch (_) {} rec = null; }
 
-// ===== Экраны =====
-function viewHome(){
-  markTab("");
-  const stats = allStats();
-  view(`<h1>Привет! 👋</h1><p class="sub">Учим английские слова с голосом</p>
-    <div class="hero"><div class="label">Общий баланс</div><div class="big">${sign(balance())} ⭐</div>
-      <div class="label" style="margin-top:10px">Точность ${stats.percent}% · проверено слов ${stats.total}</div></div>
-    <div class="grid2" style="margin-top:14px">
-      <a class="tile" href="#train"><span class="ico">🎯</span>Тренировка</a>
-      <a class="tile" href="#settings"><span class="ico">🌐</span>Загрузить слова</a></div>`);
+// ===== Экран: обучение =====
+var LEARN_STEPS = 4;
+function viewLearn(){
+  markTab("settings");
+  var st = Math.min(Math.max(S.learnStep || 1, 1), LEARN_STEPS);
+  var dots = '<div class="dots">' + [1,2,3,4].map(function(i){ return '<i class="' + (i===st?"on":"") + '"></i>'; }).join("") + '</div>';
+  var body = "", nav = "";
+  if (st === 1){
+    body = '<h1>Добро пожаловать! 👋</h1><p class="sub">Здесь вы учите английские слова: слушаете слово, говорите перевод по-русски, а приложение проверяет ответ.</p>' +
+      '<div class="card"><b>Шаг 1. Загрузите словарь</b><p class="sub" style="margin:6px 0 10px">В словаре 800 слов из учебника Navigate B1+, Unit 1–12, с переводами.</p>' +
+      '<button class="btn" onclick="learnLoad()">📘 Загрузить словарь</button>' +
+      '<button class="btn ghost" onclick="learnTo(2)">У меня свои слова — пропустить</button></div>';
+    nav = '';
+  } else if (st === 2){
+    body = '<h1>Шаг 2. Выберите урок</h1><p class="sub">На вкладке «🎯 Тренировка» выберите Unit и Part. Например, Unit 4 · Part 2 — это вторая страница словаря юнита 4. Можно выбрать «Все Part».</p>' +
+      '<div class="card empty"><span class="ico">🎯</span>Unit → Part → Start</div>';
+    nav = '<button class="btn ghost" onclick="learnTo(1)">← Назад</button><button class="btn" onclick="learnTo(3)">Далее →</button>';
+  } else if (st === 3){
+    body = '<h1>Шаг 3. Как отвечать</h1><p class="sub">Каждое слово проходит в три шага. Пошаговая подсказка видна на экране.</p>' +
+      '<div class="card">' +
+      '<div class="howto"><div class="ic">🔊</div><div><b>Слушайте</b><span>Слово произносится само. Нажмите «Слушать слово», чтобы повторить.</span></div></div>' +
+      '<div class="howto"><div class="ic">🎤</div><div><b>Говорите</b><span>Нажмите микрофон и скажите перевод по-русски. Можно писать текстом в поле ниже.</span></div></div>' +
+      '<div class="howto"><div class="ic">✅</div><div><b>Проверьте</b><span>Нажмите «Проверить». Не поняли слово? Нажмите «👁 Показать слово» — появится английское написание. Или «Пропустить».</span></div></div>' +
+      '</div>';
+    nav = '<button class="btn ghost" onclick="learnTo(2)">← Назад</button><button class="btn" onclick="learnTo(4)">Далее →</button>';
+  } else {
+    body = '<h1>Готово! 🎉</h1><p class="sub">Проверка мягкая: засчитываются синонимы, окончания и лишние слова. Например, «знать как свои пять пальцев» засчитается при переводе «знать как пять пальцев».</p>' +
+      '<div class="card"><b>Баллы</b><p class="sub" style="margin:6px 0 0">За тренировку начисляются баллы по таблице. Её можно поменять во вкладке «Ещё».</p></div>';
+    nav = '<button class="btn ghost" onclick="learnTo(3)">← Назад</button><button class="btn" onclick="learnFinish()">🎯 Начать тренировку</button>';
+  }
+  view(dots + body + nav + (st === 1 ? '' : '') + '<p class="sub" style="text-align:center;margin-top:12px">Шаг ' + st + ' из ' + LEARN_STEPS + '</p>');
 }
-function allStats(){
-  let total=0, correct=0;
-  S.sessions.filter(s=>s.finished && s.mode==="train").forEach(s => { const st=sessionStats(s); total+=Object.keys(s.results).length; correct+=st.correct; });
-  return { total, correct, percent: total ? Math.round(100*correct/total) : 0 };
-}
+window.learnTo = function(n){ S.learnStep = n; save(); viewLearn(); };
+window.learnLoad = function(){ loadBundled(true); S.learnStep = 2; save(); viewLearn(); };
+window.learnFinish = function(){ S.settings.onboarded = true; S.learnStep = 1; save(); go("train"); };
 
+// ===== Экран: главная тренировка =====
 function viewTrain(){
   markTab("train");
-  const act = activeSession();
-  if(act) return showQuestion(act);
-  const units = unitsList();
-  if(!units.length) return view(`<h1>Тренировка</h1><div class="card empty"><span class="ico">📭</span>Слов пока нет.
-    <a class="btn" href="#settings" style="margin-top:14px">🌐 Загрузить словарь</a></div>`);
-  view(`<h1>Тренировка</h1><p class="sub">Выберите Unit и Part</p>` + units.map(u => {
-    const parts = partsList(u);
-    return `<div class="card"><div class="row" style="margin-bottom:6px"><b style="font-size:17px">Unit ${esc(u)}</b><span class="pill">${wordsOf(u,"*").length} слов</span></div>
-      <button class="btn" onclick="go_start('${esc(u)}','*')">▶︎ Все Part</button>
-      ${parts.map(p => `<button class="btn ghost" onclick="go_start('${esc(u)}','${esc(p)}')">${p?"Part "+esc(p):"Без Part"} · ${wordsOf(u,p).length} слов</button>`).join("")}
-    </div>`;
-  }).join(""));
+  var act = activeSession();
+  if (act) return showQuestion(act);
+  var units = unitsList();
+  if (!S.settings.onboarded && !S.words.length) return viewLearn();
+  if (!units.length) return view('<h1>Тренировка</h1><div class="card empty"><span class="ico">📭</span>Слов пока нет.<br>Загрузите словарь на вкладке «Ещё».<br><br><a class="btn" href="#settings">🌐 Загрузить словарь</a></div>');
+  var html = '<h1>Тренировка</h1><p class="sub">Выберите Unit и Part, затем нажмите ▶︎</p>';
+  units.forEach(function(u){
+    var parts = partsList(u);
+    html += '<div class="card"><div class="row" style="margin-bottom:4px"><b style="font-size:18px">Unit ' + esc(u) + '</b><span class="pill">' + wordsOf(u,"*").length + ' слов</span></div>' +
+      '<button class="btn" onclick="goStart(\'' + esc(u) + '\',\'*\')">▶︎ Все Part</button>' +
+      parts.map(function(p){ return '<button class="btn ghost" onclick="goStart(\'' + esc(u) + '\',\'' + esc(p) + '\')">' + (p ? "Part " + esc(p) : "Без Part") + ' · ' + wordsOf(u,p).length + ' слов</button>'; }).join("") +
+      '</div>';
+  });
+  view(html);
 }
-window.go_start = (unit, part) => { try { showQuestion(startSession(unit, part, "train")); } catch(e){ toast(e.message); } };
-window.retryFrom = (sid) => {
-  const src = S.sessions.find(s=>s.id===sid); if(!src) return;
-  const wrong = sessionStats(src).wrongIds.filter(id => S.words.some(w=>w.id===id));
-  if(!wrong.length) return toast("Ошибок нет");
+window.goStart = function(unit, part){ try { showQuestion(startSession(unit, part, "train")); } catch (e) { toast(e.message); } };
+window.retryFrom = function(sid){
+  var src = S.sessions.filter(function(s){ return s.id === sid; })[0]; if (!src) return;
+  var wrong = sessionStats(src).wrongIds.filter(function(id){ return S.words.some(function(w){ return w.id === id; }); });
+  if (!wrong.length) return toast("Ошибок нет");
   showQuestion(startSession(src.unit, src.part, "retry", wrong));
 };
-window.againTrain = () => { const last = [...S.sessions].reverse().find(s=>s.finished && s.mode==="train"); if(!last) return go("train"); go_start(last.unit, last.part); };
+window.againTrain = function(){
+  var fin = S.sessions.filter(function(s){ return s.finished && s.mode === "train"; });
+  if (!fin.length) return go("train");
+  goStart(fin[fin.length-1].unit, fin[fin.length-1].part);
+};
 
-let cur = null;
-function ring(done,total){
-  const r=62, c=2*Math.PI*r, pct= total? done/total : 0;
-  return `<svg class="ring" viewBox="0 0 150 150" width="150" height="150">
-    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>
-    <circle cx="75" cy="75" r="${r}" stroke="rgba(127,127,127,.18)" stroke-width="12" fill="none"/>
-    <circle cx="75" cy="75" r="${r}" stroke="url(#g)" stroke-width="12" fill="none" stroke-linecap="round" transform="rotate(-90 75 75)" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-pct)}"/>
-    <text x="75" y="72" text-anchor="middle" font-size="26" font-weight="800" fill="currentColor">${done}/${total}</text>
-    <text x="75" y="92" text-anchor="middle" font-size="11" fill="#7c8196">слов</text></svg>`;
+var cur = null;
+function ring(done, total){
+  var r=62, c=2*Math.PI*r, pct = total ? done/total : 0;
+  return '<svg class="ring" viewBox="0 0 150 150" width="150" height="150">' +
+    '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>' +
+    '<circle class="ring-bg" cx="75" cy="75" r="' + r + '" stroke-width="12" fill="none"/>' +
+    '<circle cx="75" cy="75" r="' + r + '" stroke="url(#g)" stroke-width="12" fill="none" stroke-linecap="round" transform="rotate(-90 75 75)" stroke-dasharray="' + c + '" stroke-dashoffset="' + (c*(1-pct)) + '"/>' +
+    '<text x="75" y="72" text-anchor="middle" font-size="26" font-weight="800" fill="currentColor">' + done + '/' + total + '</text>' +
+    '<text x="75" y="92" text-anchor="middle" font-size="11" fill="#6b7189">слов</text></svg>';
 }
+function speedBar(){
+  var r = S.settings.rate;
+  return '<div class="speed">🐢<input type="range" min="0.2" max="2" step="0.1" value="' + r + '" oninput="setRate(this.value)">🐇<b id="rateLbl">' + r.toFixed(1) + 'x</b></div>';
+}
+window.setRate = function(v){ S.settings.rate = clampRate(v); save(); var l=$("#rateLbl"); if (l) l.textContent = S.settings.rate.toFixed(1) + "x"; };
+
 function showQuestion(s){
-  cur = { s, heard: null, verdict: false };
-  const w = currentWord(s);
-  if(!w){ return viewFinish(s); }
-  const st = sessionStats(s);
-  const title = s.mode==="retry" ? "🔁 Повтор ошибок" : `Unit ${esc(s.unit)}${s.part==="*"?"":" · Part "+esc(s.part)}`;
-  view(`<h1>${title}</h1>
-    <div class="card stage">
-      ${ring(s.index, s.wordIds.length)}
-      <div class="sub" style="margin:0">Слово ${s.index+1} из ${s.wordIds.length} · ошибок: ${st.errors}</div>
-      <button class="btn ghost small" style="margin-top:10px" onclick="replayWord()">🔊 Слушать слово</button>
-      <div id="status" class="status">Слушайте слово, затем нажмите 🎤 и переведите</div>
-      <div class="mic-wrap"><button id="mic" class="mic" onclick="toggleMic()">🎤</button><span class="pulse"></span><span class="pulse p2"></span></div>
-      <div class="heard"><span class="lbl">Вы сказали</span><span id="heardText" style="color:var(--hint)">—</span></div>
-      <input id="txt" placeholder="Или напишите перевод здесь" autocomplete="off">
-      <div id="verdictBox"></div>
-      <div class="actions" id="actions">
-        <button class="btn" id="checkBtn" onclick="checkAnswer()">✅ Проверить</button>
-        <button class="btn ghost" onclick="skipWord()">⏭ Пропустить</button>
-      </div>
-    </div>
-    <button class="btn ghost" style="color:var(--bad)" onclick="finishNow()">⏹ Завершить тренировку</button>`);
-  speakThen(w.en, () => startListening());
+  cur = { s: s, heard: null, verdict: false };
+  var w = currentWord(s);
+  if (!w) return viewFinish(s);
+  var st = sessionStats(s);
+  var title = s.mode === "retry" ? "🔁 Повтор ошибок" : "Unit " + esc(s.unit) + (s.part === "*" ? "" : " · Part " + esc(s.part));
+  view('<h1>' + title + '</h1>' +
+    '<div class="card stage">' + ring(s.index, s.wordIds.length) +
+    '<div class="sub" style="margin:0">Слово ' + (s.index+1) + ' из ' + s.wordIds.length + ' · ошибок: ' + st.errors + '</div>' +
+    '<div class="steps"><span id="s1" class="on">1 Слушайте</span><span id="s2">2 Говорите</span><span id="s3">3 Проверьте</span></div>' +
+    '<button class="btn ghost small" onclick="replayWord()">🔊 Слушать слово</button>' +
+    '<div id="status" class="status">Слушайте слово…</div>' +
+    '<div class="mic-wrap"><button id="mic" class="mic" onclick="toggleMic()">🎤</button><span class="pulse"></span><span class="pulse p2"></span></div>' +
+    '<div class="heard"><span class="lbl">Вы сказали</span><span id="heardText" style="color:var(--hint)">—</span></div>' +
+    '<input id="txt" placeholder="Или напишите перевод здесь" autocomplete="off">' +
+    '<div id="hintBox"></div><div id="verdictBox"></div>' +
+    '<div class="actions" id="actions">' +
+      '<button class="btn" id="checkBtn" onclick="checkAnswer()">✅ Проверить</button>' +
+      '<button id="showBtn" class="btn ghost" onclick="showHint()">👁 Показать слово</button>' +
+      '<button class="btn ghost" style="grid-column:1/-1" onclick="skipWord()">⏭ Пропустить</button>' +
+    '</div></div>' +
+    speedBar() +
+    '<button class="btn ghost" style="color:var(--bad);margin-top:10px" onclick="finishNow()">⏹ Завершить тренировку</button>');
+  speakThen(w.en, function(){ startListening(); });
 }
-const setStatus = (t) => { const el=$("#status"); if(el) el.textContent=t; };
-const setListening = (on) => { const m=$("#mic"); if(m) m.classList.toggle("listening", on); };
+function setStep(n){ for (var i=1;i<=3;i++){ var el=$("#s"+i); if (el) el.className = (i===n ? "on" : ""); } }
+function setStatus(t){ var el=$("#status"); if (el) el.textContent = t; }
+function setListening(on){ var m=$("#mic"); if (m) m.classList.toggle("listening", on); }
 function startListening(){
-  if(!cur || cur.verdict) return;
-  if(!SR){ setStatus("Голос в этом браузере не работает — напишите перевод в поле ниже"); return; }
-  stopListen(); setListening(true); setStatus("🎙 Говорите перевод…");
-  listen(alts => {
-    setListening(false);
-    cur.heard = alts;
+  if (!cur || cur.verdict) return;
+  if (!SR){ setStatus("Голос в этом браузере не работает — напишите перевод в поле ниже"); setStep(2); return; }
+  stopListen(); setListening(true); setStep(2); setStatus("🎙 Говорите перевод…");
+  listen(function(alts){
+    setListening(false); cur.heard = alts;
     $("#heardText").textContent = alts[0]; $("#heardText").style.color = "";
-    setStatus("Проверьте распознанное и нажмите «Проверить»");
-  }, err => {
-    setListening(false);
-    setStatus(err.message + ". Нажмите 🎤 ещё раз или напишите перевод.");
+    setStep(3); setStatus("Проверьте и нажмите «Проверить»");
+  }, function(err){
+    setListening(false); setStatus(err.message + ". Нажмите 🎤 ещё раз или напишите перевод.");
   });
 }
-window.toggleMic = () => {
-  if(!cur || cur.verdict) return;
-  if($("#mic").classList.contains("listening")){ stopListen(); setListening(false); setStatus("Нажмите 🎤, чтобы говорить"); }
+window.toggleMic = function(){
+  if (!cur || cur.verdict) return;
+  if ($("#mic").classList.contains("listening")){ stopListen(); setListening(false); setStatus("Нажмите 🎤, чтобы говорить"); }
   else startListening();
 };
-window.replayWord = () => { const s=cur && cur.s; const w = s && currentWord(s); if(w) speakThen(w.en, () => {}); };
-window.checkAnswer = () => {
-  if(!cur || cur.verdict) return;
-  const typed = ($("#txt").value || "").trim();
-  const alts = typed ? [typed] : (cur.heard || []);
-  if(!alts.length) return toast("Сначала скажите перевод или напишите его в поле");
-  judge(alts, false);
+window.replayWord = function(){ var w = cur && currentWord(cur.s); if (w) speakThen(w.en, function(){}); };
+window.checkAnswer = function(){
+  if (!cur || cur.verdict) return;
+  var typed = ($("#txt").value || "").trim();
+  var alts = typed ? [typed] : (cur.heard || []);
+  if (!alts.length) return toast("Сначала скажите перевод или напишите его в поле");
+  judge(alts, false, false);
 };
-window.skipWord = () => { if(cur && !cur.verdict) judge([], true); };
-function judge(alts, skipped){
-  const s = cur.s, w = currentWord(s);
-  const correct = !skipped && alts.some(a => isCorrect(a, w.ru));
-  const said = skipped ? "" : (alts.find(a => isCorrect(a, w.ru)) || alts[0]);
+window.showHint = function(){
+  if (!cur || cur.verdict) return;
+  var w = currentWord(cur.s);
+  $("#hintBox").innerHTML = '<div class="hintbox">👁 Слово: <b style="font-size:22px">' + esc(w.en) + '</b><br><span style="color:var(--hint);font-size:14px">Теперь скажите или напишите перевод. Показ слова ошибкой не считается.</span></div>';
+  var b = $("#showBtn"); if (b) b.disabled = true;
+};
+window.skipWord = function(){ if (cur && !cur.verdict) judge([], true, false); };
+function judge(alts, skipped, hinted){
+  var s = cur.s, w = currentWord(s);
+  var correct = !skipped && alts.some(function(a){ return isCorrect(a, w.ru); });
+  var said = skipped ? "" : (alts.filter(function(a){ return isCorrect(a, w.ru); })[0] || alts[0] || "");
   record(s, w.id, correct, skipped);
   save();
-  cur.verdict = true; stopListen(); setListening(false); setStatus("");
-  const done = s.index >= s.wordIds.length;
-  $("#verdictBox").innerHTML = `<div class="verdict ${correct?"ok":"bad"}">
-    <div class="head">${correct?"🎉 Верно!":skipped?"⏭ Пропущено":"❌ Не совсем"}</div>
-    <div class="tr">${esc(w.ru)}</div>
-    <div class="en">${esc(w.en)}${!skipped && said ? " · вы сказали: «"+esc(said)+"»" : ""}</div></div>`;
-  $("#actions").innerHTML = `<button class="btn" style="grid-column:1/-1" onclick="nextStep()">${done?"🏁 Итоги тренировки":"Дальше →"}</button>`;
-  $("#txt").disabled = true;
+  cur.verdict = true; stopListen(); setListening(false); setStatus(""); setStep(3);
+  var done = s.index >= s.wordIds.length;
+  var head = correct ? "🎉 Верно!" : hinted ? "💡 Подсказка" : skipped ? "⏭ Пропущено" : "❌ Не совсем";
+  $("#verdictBox").innerHTML = '<div class="verdict ' + (correct ? "ok" : "bad") + '">' +
+    '<div class="head">' + head + '</div><div class="tr">' + esc(w.ru) + '</div>' +
+    '<div class="en">' + esc(w.en) + (!skipped && said ? " · вы сказали: «" + esc(said) + "»" : "") + '</div></div>';
+  $("#actions").innerHTML = '<button class="btn" style="grid-column:1/-1" onclick="nextStep()">' + (done ? "🏁 Итоги тренировки" : "Дальше →") + '</button>';
+  var t = $("#txt"); if (t) t.disabled = true;
 }
-window.nextStep = () => { const s = cur.s; if(s.index >= s.wordIds.length) viewFinish(s); else showQuestion(s); };
-window.finishNow = () => { if(!cur) return; stopListen(); viewFinish(cur.s); };
+window.nextStep = function(){ var s = cur.s; if (s.index >= s.wordIds.length) viewFinish(s); else showQuestion(s); };
+window.finishNow = function(){ if (!cur) return; stopListen(); viewFinish(cur.s); };
 function viewFinish(s){
   stopListen(); cur = null;
-  const pts = finishSession(s); const st = sessionStats(s);
-  view(`<h1>🏁 Готово!</h1>
-    <div class="hero" style="text-align:center"><div class="label">Точность</div><div class="big">${st.percent}%</div>
-      <div class="label" style="margin-top:6px">${s.mode==="retry" ? "Повтор без начисления баллов" : "Баллы за тренировку: "+sign(pts)}</div></div>
-    <div class="grid2" style="margin-top:12px">
-      <div class="card" style="text-align:center"><div class="sub" style="margin:0">Правильно</div><b style="font-size:24px">${st.correct}</b></div>
-      <div class="card" style="text-align:center"><div class="sub" style="margin:0">Ошибок</div><b style="font-size:24px">${st.errors}</b></div>
-      <div class="card" style="text-align:center"><div class="sub" style="margin:0">Пропусков</div><b style="font-size:24px">${st.skipped}</b></div>
-      <div class="card" style="text-align:center"><div class="sub" style="margin:0">Баланс</div><b style="font-size:24px">${balance()}</b></div></div>
-    ${st.wrongIds.length ? `<button class="btn" onclick="retryFrom(${s.id})">🔁 Повторить ошибки (${st.wrongIds.length})</button>` : ""}
-    <button class="btn ghost" onclick="againTrain()">🔄 Пройти заново</button>
-    <button class="btn ghost" onclick="go('home')">🏠 На главную</button>`);
+  var pts = finishSession(s), st = sessionStats(s);
+  view('<h1>🏁 Готово!</h1>' +
+    '<div class="hero" style="text-align:center"><div class="label">Точность</div><div class="big">' + st.percent + '%</div>' +
+    '<div class="label" style="margin-top:6px">' + (s.mode === "retry" ? "Повтор без начисления баллов" : "Баллы за тренировку: " + sign(pts)) + '</div></div>' +
+    '<div class="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">' +
+      '<div class="card" style="text-align:center"><div class="sub" style="margin:0">Правильно</div><b style="font-size:24px">' + st.correct + '</b></div>' +
+      '<div class="card" style="text-align:center"><div class="sub" style="margin:0">Ошибок</div><b style="font-size:24px">' + st.errors + '</b></div>' +
+      '<div class="card" style="text-align:center"><div class="sub" style="margin:0">Пропусков</div><b style="font-size:24px">' + st.skipped + '</b></div>' +
+      '<div class="card" style="text-align:center"><div class="sub" style="margin:0">Баланс</div><b style="font-size:24px">' + balance() + '</b></div></div>' +
+    (st.wrongIds.length ? '<button class="btn" onclick="retryFrom(' + s.id + ')">🔁 Повторить ошибки (' + st.wrongIds.length + ')</button>' : '') +
+    '<button class="btn ghost" onclick="againTrain()">🔄 Пройти заново</button>' +
+    '<button class="btn ghost" onclick="go(\'train\')">🏠 К выбору урока</button>');
 }
 
+// ===== Слова: поиск по Unit и Part, без удаления и изменения =====
+var wf = { unit: "*", part: "*", q: "" };
 function viewWords(){
   markTab("words");
-  const list = [...S.words].sort((a,b)=> a.unit.localeCompare(b.unit, undefined, {numeric:true}) || a.part.localeCompare(b.part) || a.en.localeCompare(b.en));
-  view(`<h1>Мои слова <span class="pill">${S.words.length}</span></h1>
-    <div class="card"><h2 style="margin-top:0">Добавить слово</h2>
-      <input id="w-en" placeholder="English, например: apple"><input id="w-ru" placeholder="Перевод, например: яблоко">
-      <button class="btn" onclick="addWord()">➕ Добавить</button></div>
-    <div class="card">${list.slice(0,400).map(w => `<div class="li"><div><b>${esc(w.en)}</b> — ${esc(w.ru)}
-        <small>Unit ${esc(w.unit)}${w.part?" · Part "+esc(w.part):""}</small></div>
-        <div class="row auto"><button class="btn ghost small" onclick="editWord(${w.id})">✏️</button>
-        <button class="btn danger small" onclick="delWord(${w.id})">🗑</button></div></div>`).join("") || `<div class="empty"><span class="ico">📭</span>Список пуст</div>`}
-      ${list.length>400?`<p class="sub">Показаны первые 400 из ${list.length}</p>`:""}</div>`);
+  var units = unitsList();
+  var unitOpts = '<option value="*">Все Unit</option>' + units.map(function(u){ return '<option value="' + esc(u) + '" ' + (wf.unit===u?"selected":"") + '>Unit ' + esc(u) + '</option>'; }).join("");
+  var partOpts = '<option value="*">Все Part</option>' + (wf.unit === "*" ? [] : partsList(wf.unit)).map(function(p){ return '<option value="' + esc(p) + '" ' + (wf.part===p?"selected":"") + '>' + (p ? "Part " + esc(p) : "Без Part") + '</option>'; }).join("");
+  view('<h1>Мои слова <span class="pill">' + S.words.length + '</span></h1>' +
+    '<div class="card"><div class="row"><select id="f-unit" onchange="setUnitFilter(this.value)">' + unitOpts + '</select>' +
+    '<select id="f-part" onchange="setPartFilter(this.value)">' + partOpts + '</select></div>' +
+    '<input id="f-q" placeholder="🔍 Поиск по слову или переводу" value="' + esc(wf.q) + '" oninput="setQFilter(this.value)"></div>' +
+    '<div id="wordList"></div>' +
+    '<div class="card"><h2 style="margin-top:0">Добавить слово</h2>' +
+    '<input id="w-en" placeholder="English, например: apple"><input id="w-ru" placeholder="Перевод, например: яблоко">' +
+    '<button class="btn" onclick="addWord()">➕ Добавить</button>' +
+    '<p class="sub" style="margin:8px 0 0">Слова из словаря нельзя изменить или удалить.</p></div>');
+  renderWordList();
 }
-window.addWord = () => {
-  const en=$("#w-en").value.trim(), ru=$("#w-ru").value.trim();
-  if(!en||!ru) return toast("Заполните оба поля");
-  S.words.push({id:nextId(), unit:"Мои", part:"", en, ru}); save(); toast("Слово добавлено ✨"); viewWords();
+window.setUnitFilter = function(v){ wf.unit = v; wf.part = "*"; viewWords(); };
+window.setPartFilter = function(v){ wf.part = v; renderWordList(); };
+window.setQFilter = function(v){ wf.q = v; renderWordList(); };
+function renderWordList(){
+  var q = norm(wf.q);
+  var list = S.words.filter(function(w){
+    if (wf.unit !== "*" && w.unit !== wf.unit) return false;
+    if (wf.part !== "*" && w.part !== wf.part) return false;
+    if (q && norm(w.en + " " + w.ru).indexOf(q) === -1) return false;
+    return true;
+  });
+  var groups = {};
+  list.forEach(function(w){ (groups[w.unit] = groups[w.unit] || []).push(w); });
+  var keys = Object.keys(groups).sort(unitSort);
+  var html = "";
+  keys.forEach(function(u){
+    var items = groups[u].slice().sort(function(a,b){ return String(a.part).localeCompare(String(b.part)) || a.en.localeCompare(b.en); });
+    html += '<div class="ugroup"><div class="uhead"><span>Unit ' + esc(u) + '</span><span class="pill">' + items.length + '</span></div>' +
+      items.slice(0, 300).map(function(w){ return '<div class="wrow"><b>' + esc(w.en) + '</b> — ' + esc(w.ru) + '<br><small>' + (w.part ? "Part " + esc(w.part) : "без Part") + '</small></div>'; }).join("") +
+      '</div>';
+  });
+  var box = $("#wordList");
+  if (box) box.innerHTML = html || '<div class="card empty"><span class="ico">🔍</span>Ничего не найдено</div>';
+}
+window.addWord = function(){
+  var en = $("#w-en").value.trim(), ru = $("#w-ru").value.trim();
+  if (!en || !ru) return toast("Заполните оба поля");
+  S.words.push({ id: nextId(), unit: "Мои", part: "", en: en, ru: ru }); save(); toast("Слово добавлено ✨"); viewWords();
 };
-window.editWord = (id) => {
-  const w = S.words.find(x=>x.id===id); if(!w) return;
-  const en = prompt("Английское слово", w.en); if(en===null) return;
-  const ru = prompt("Перевод", w.ru); if(ru===null) return;
-  if(!en.trim()||!ru.trim()) return toast("Поля не могут быть пустыми");
-  w.en=en.trim(); w.ru=ru.trim(); save(); viewWords();
-};
-window.delWord = (id) => { if(!confirm("Удалить слово?")) return; S.words = S.words.filter(w=>w.id!==id); save(); viewWords(); };
 
+// ===== Статистика =====
 function viewStats(){
   markTab("stats");
-  const fin = S.sessions.filter(s=>s.finished && s.mode==="train");
-  const rows = {};
-  let total=0, correct=0, errors=0, skipped=0;
-  fin.forEach(s => { const st=sessionStats(s); total+=Object.keys(s.results).length; correct+=st.correct; errors+=st.errors; skipped+=st.skipped;
-    const k = `${s.unit}|${s.part}`; rows[k] = rows[k] || {t:0,c:0}; rows[k].t += Object.keys(s.results).length; rows[k].c += st.correct; });
-  const pct = total ? Math.round(100*correct/total) : 0;
-  view(`<h1>Статистика</h1>
-    <div class="hero"><div class="label">Процент правильных</div><div class="big">${pct}%</div><div class="label" style="margin-top:6px">Баланс: ${sign(balance())} ⭐</div></div>
-    <div class="card" style="margin-top:14px">
-      <div class="stat"><span>Всего слов</span><b>${total}</b></div>
-      <div class="stat"><span>✅ Правильных</span><b>${correct}</b></div>
-      <div class="stat"><span>❌ Ошибок</span><b>${errors}</b></div>
-      <div class="stat"><span>⏭ Пропусков</span><b>${skipped}</b></div></div>
-    <h2>По Unit и Part</h2>
-    <div class="card">${Object.entries(rows).map(([k,v]) => { const [u,p]=k.split("|"); return `<div class="stat"><span>Unit ${esc(u)} · Part ${esc(p||"—")}</span><b>${v.t?Math.round(100*v.c/v.t):0}% · ${v.t}</b></div>`; }).join("") || `<div class="empty">Данных пока нет</div>`}</div>
-    <h2>История</h2>
-    <div class="card">${[...fin].reverse().slice(0,30).map(s => `<div class="stat"><span>Unit ${esc(s.unit)} ${esc(s.part)}${s.mode==="retry"?" · повтор":""}</span><b class="${s.points>=0?"pos":"neg"}">${sign(s.points)}</b></div>`).join("") || `<div class="empty">Тренировок пока нет</div>`}</div>`);
+  var fin = S.sessions.filter(function(s){ return s.finished && s.mode === "train"; });
+  var rows = {}, total=0, correct=0, errors=0, skipped=0;
+  fin.forEach(function(s){
+    var st = sessionStats(s), n = Object.keys(s.results).length;
+    total += n; correct += st.correct; errors += st.errors; skipped += st.skipped;
+    var k = s.unit + "|" + s.part; rows[k] = rows[k] || { t:0, c:0 }; rows[k].t += n; rows[k].c += st.correct;
+  });
+  var pct = total ? Math.round(100*correct/total) : 0;
+  view('<h1>Статистика</h1>' +
+    '<div class="hero"><div class="label">Процент правильных</div><div class="big">' + pct + '%</div><div class="label" style="margin-top:6px">Баланс: ' + sign(balance()) + ' ⭐</div></div>' +
+    '<div class="card" style="margin-top:14px">' +
+      '<div class="stat"><span>Всего слов</span><b>' + total + '</b></div>' +
+      '<div class="stat"><span>✅ Правильных</span><b>' + correct + '</b></div>' +
+      '<div class="stat"><span>❌ Ошибок</span><b>' + errors + '</b></div>' +
+      '<div class="stat"><span>⏭ Пропусков и подсказок</span><b>' + skipped + '</b></div></div>' +
+    '<h2>По Unit и Part</h2><div class="card">' +
+      (Object.keys(rows).map(function(k){ var p=k.split("|"); var r=rows[k]; return '<div class="stat"><span>Unit ' + esc(p[0]) + ' · Part ' + esc(p[1] || "—") + '</span><b>' + (r.t ? Math.round(100*r.c/r.t) : 0) + '% · ' + r.t + '</b></div>'; }).join("") || '<div class="empty">Данных пока нет</div>') +
+    '</div><h2>История</h2><div class="card">' +
+      (fin.slice().reverse().slice(0,30).map(function(s){ return '<div class="stat"><span>Unit ' + esc(s.unit) + ' ' + esc(s.part) + (s.mode==="retry"?" · повтор":"") + '</span><b class="' + (s.points>=0?"pos":"neg") + '">' + sign(s.points) + '</b></div>'; }).join("") || '<div class="empty">Тренировок пока нет</div>') +
+    '</div>');
 }
 function viewPoints(){
   markTab("points");
-  const fin = S.sessions.filter(s=>s.finished).reverse().slice(0,20);
-  view(`<h1>Мои баллы</h1>
-    <div class="hero" style="text-align:center"><div class="label">Общий баланс</div><div class="big">${sign(balance())} ⭐</div></div>
-    <h2>Последние тренировки</h2>
-    <div class="card">${fin.map(s => `<div class="stat"><span>Unit ${esc(s.unit)} ${esc(s.part)}${s.mode==="retry"?" · повтор":""}</span><b class="${s.points>=0?"pos":"neg"}">${sign(s.points)}</b></div>`).join("") || `<div class="empty">Пока нет тренировок</div>`}</div>
-    <a class="btn ghost" href="#settings">📋 Таблица баллов</a>`);
+  var fin = S.sessions.filter(function(s){ return s.finished; }).reverse().slice(0,20);
+  view('<h1>Мои баллы</h1>' +
+    '<div class="hero" style="text-align:center"><div class="label">Общий баланс</div><div class="big">' + sign(balance()) + ' ⭐</div></div>' +
+    '<h2>Последние тренировки</h2><div class="card">' +
+      (fin.map(function(s){ return '<div class="stat"><span>Unit ' + esc(s.unit) + ' ' + esc(s.part) + (s.mode==="retry"?" · повтор":"") + '</span><b class="' + (s.points>=0?"pos":"neg") + '">' + sign(s.points) + '</b></div>'; }).join("") || '<div class="empty">Пока нет тренировок</div>') +
+    '</div><a class="btn ghost" href="#settings">📋 Таблица баллов</a>');
 }
-const ruleLabel = (r) => { const rng = r.max===null ? `${r.min}+` : r.min===r.max ? `${r.min}` : `${r.min}–${r.max}`; return `<b>${rng}</b> ошибок → <b class="${r.points>=0?"pos":"neg"}">${sign(r.points)}</b> баллов`; };
-const pointOptions = (sel) => [-5,-4,-3,-2,-1,0,1,2,3,4,5].map(v => `<option value="${v}" ${v===sel?"selected":""}>${sign(v)}</option>`).join("");
+
+// ===== Ещё: настройки, таблица баллов, загрузка =====
+function ruleLabel(r){ var rng = r.max === null ? r.min + "+" : r.min === r.max ? "" + r.min : r.min + "–" + r.max; return '<b>' + rng + '</b> ошибок → <b class="' + (r.points>=0?"pos":"neg") + '">' + sign(r.points) + '</b> баллов'; }
+function pointOptions(sel){ return [-5,-4,-3,-2,-1,0,1,2,3,4,5].map(function(v){ return '<option value="' + v + '" ' + (v===sel?"selected":"") + '>' + sign(v) + '</option>'; }).join(""); }
 function viewSettings(){
   markTab("settings");
-  const s = S.settings;
-  view(`<h1>Настройки</h1>
-    <div class="card"><h2 style="margin-top:0">Тренировка</h2>
-      <label class="sub" style="margin:6px 0 0">Слов за тренировку</label>
-      <select id="s-words">${[5,10,15,20,30,50].map(n=>`<option ${n===s.perSession?"selected":""}>${n}</option>`).join("")}</select>
-      <label class="sub" style="margin:6px 0 0">Скорость произношения</label>
-      <select id="s-rate"><option value="0.7" ${s.rate<0.9?"selected":""}>Медленная</option><option value="1" ${s.rate>=0.9?"selected":""}>Обычная</option></select>
-      <label class="check"><input type="checkbox" id="s-shuffle" ${s.shuffle?"checked":""}> Случайный порядок</label>
-      <button class="btn" onclick="saveSettings()">Сохранить</button></div>
-    <div class="card"><h2 style="margin-top:0">Таблица баллов</h2>
-      ${S.rules.map((r,i) => `<div class="li"><div>${ruleLabel(r)}</div><div class="row auto"><button class="btn ghost small" onclick="editRule(${i})">✏️</button><button class="btn danger small" onclick="delRule(${i})">🗑</button></div></div>`).join("")}
-      <h2>Новое правило</h2>
-      <div class="row"><input id="r-min" type="number" min="0" placeholder="от ошибок"><input id="r-max" type="number" min="0" placeholder="до (пусто = ∞)"></div>
-      <select id="r-pts">${pointOptions(0)}</select>
-      <button class="btn" onclick="addRule()">➕ Добавить правило</button>
-      <button class="btn ghost" onclick="resetRules()">♻️ Стандартная таблица</button></div>
-    <div class="card"><h2 style="margin-top:0">Источник слов</h2>
-      <p class="sub">Словарь Navigate B1+, Unit 1–12, 800 слов с переводами</p>
-      <button class="btn" onclick="loadBundled()">📘 Загрузить словарь</button>
-      <button class="btn ghost danger" style="color:var(--bad)" onclick="resetAll()">🗑 Очистить все данные в браузере</button></div>
-    <div class="card"><h2 style="margin-top:0">Добавить много слов</h2>
-      <textarea id="src-text" placeholder="apple - яблоко&#10;cat - кот"></textarea>
-      <button class="btn" onclick="loadManual()">Добавить в «Мои»</button></div>`);
+  var s = S.settings;
+  view('<h1>Ещё</h1>' +
+    '<div class="card"><h2 style="margin-top:0">🔊 Скорость произношения</h2>' +
+      '<p class="sub" style="margin:0">Сейчас: <b id="rateLbl">' + s.rate.toFixed(1) + 'x</b> (от 0.2x до 2x)</p>' +
+      '<div class="speed" style="margin-top:12px">🐢<input type="range" min="0.2" max="2" step="0.1" value="' + s.rate + '" oninput="setRate(this.value)">🐇</div></div>' +
+    '<div class="card"><h2 style="margin-top:0">Тренировка</h2>' +
+      '<label class="sub" style="margin:6px 0 0">Слов за тренировку</label>' +
+      '<select id="s-words">' + [5,10,15,20,30,50].map(function(n){ return '<option ' + (n===s.perSession?"selected":"") + '>' + n + '</option>'; }).join("") + '</select>' +
+      '<label class="check"><input type="checkbox" id="s-shuffle" ' + (s.shuffle?"checked":"") + '> Случайный порядок слов</label>' +
+      '<button class="btn" onclick="saveSettings()">Сохранить</button></div>' +
+    '<div class="card"><h2 style="margin-top:0">📋 Таблица баллов</h2>' +
+      S.rules.map(function(r,i){ return '<div class="li"><div>' + ruleLabel(r) + '</div><div class="row auto"><button class="btn ghost small" onclick="editRule(' + i + ')">✏️</button><button class="btn danger small" onclick="delRule(' + i + ')">🗑</button></div></div>'; }).join("") +
+      '<h2>Новое правило</h2>' +
+      '<div class="row"><input id="r-min" type="number" min="0" placeholder="от ошибок"><input id="r-max" type="number" min="0" placeholder="до (пусто = ∞)"></div>' +
+      '<select id="r-pts">' + pointOptions(0) + '</select>' +
+      '<button class="btn" onclick="addRule()">➕ Добавить правило</button>' +
+      '<button class="btn ghost" onclick="resetRules()">♻️ Стандартная таблица</button></div>' +
+    '<div class="card"><h2 style="margin-top:0">🌐 Слова</h2>' +
+      '<p class="sub">Словарь Navigate B1+, Unit 1–12, 800 слов с переводами. Повторная загрузка добавит только новые слова.</p>' +
+      '<button class="btn" onclick="loadBundled(false)">📘 Загрузить словарь</button>' +
+      '<textarea id="src-text" placeholder="apple - яблоко&#10;cat - кот"></textarea>' +
+      '<button class="btn ghost" onclick="loadManual()">Добавить свои слова (раздел «Мои»)</button></div>' +
+    '<div class="card"><h2 style="margin-top:0">🎓 Обучение</h2>' +
+      '<p class="sub">Пошаговая инструкция: как загрузить слова, выбрать урок и отвечать.</p>' +
+      '<button class="btn ghost" onclick="openLearn()">Открыть обучение</button></div>');
 }
-window.saveSettings = () => {
-  S.settings = { perSession:Number($("#s-words").value), rate:Number($("#s-rate").value), shuffle:$("#s-shuffle").checked, retry:false };
+window.openLearn = function(){ S.learnStep = 1; save(); go("learn"); };
+window.saveSettings = function(){
+  S.settings.perSession = Number($("#s-words").value);
+  S.settings.shuffle = $("#s-shuffle").checked;
   save(); toast("Сохранено ✅"); viewSettings();
 };
-function ruleInput(){ const mx=$("#r-max").value.trim(); return { min:Number($("#r-min").value), max: mx===""?null:Number(mx), points:Number($("#r-pts").value) }; }
+function ruleInput(){ var mx = $("#r-max").value.trim(); return { min: Number($("#r-min").value), max: mx === "" ? null : Number(mx), points: Number($("#r-pts").value) }; }
 function validRule(r){
-  if(!Number.isInteger(r.min)||r.min<0) return "Минимум ошибок — целое число от 0";
-  if(r.max!==null && (!Number.isInteger(r.max)||r.max<r.min)) return "Максимум должен быть не меньше минимума";
-  if(!(r.points>=-5 && r.points<=5)) return "Баллы от -5 до 5";
+  if (!(r.min >= 0 && Math.floor(r.min) === r.min)) return "Минимум ошибок — целое число от 0";
+  if (r.max !== null && (!(r.max >= r.min) || Math.floor(r.max) !== r.max)) return "Максимум должен быть не меньше минимума";
+  if (!(r.points >= -5 && r.points <= 5)) return "Баллы от -5 до 5";
   return null;
 }
-window.addRule = () => { const r=ruleInput(); const e=validRule(r); if(e) return toast(e); S.rules.push(r); save(); viewSettings(); };
-window.editRule = (i) => {
-  const r=S.rules[i];
-  const min=prompt("От ошибок", r.min); if(min===null) return;
-  const max=prompt("До ошибок (пусто = ∞)", r.max === null ? "" : r.max); if(max===null) return;
-  const pts=prompt("Баллы (от -5 до 5)", r.points); if(pts===null) return;
-  const nr={min:Number(min), max: max.trim()===""?null:Number(max), points:Number(pts)};
-  const e=validRule(nr); if(e) return toast(e);
-  S.rules[i]=nr; save(); viewSettings();
+window.addRule = function(){ var r = ruleInput(), e = validRule(r); if (e) return toast(e); S.rules.push(r); save(); viewSettings(); };
+window.editRule = function(i){
+  var r = S.rules[i];
+  var min = prompt("От ошибок", r.min); if (min === null) return;
+  var max = prompt("До ошибок (пусто = ∞)", r.max === null ? "" : r.max); if (max === null) return;
+  var pts = prompt("Баллы (от -5 до 5)", r.points); if (pts === null) return;
+  var nr = { min: Number(min), max: max.trim() === "" ? null : Number(max), points: Number(pts) };
+  var e = validRule(nr); if (e) return toast(e);
+  S.rules[i] = nr; save(); viewSettings();
 };
-window.delRule = (i) => { if(!confirm("Удалить правило?")) return; S.rules.splice(i,1); save(); viewSettings(); };
-window.resetRules = () => { if(!confirm("Вернуть стандартную таблицу баллов?")) return; S.rules = DEFAULT_RULES.map(r=>({min:r[0],max:r[1],points:r[2]})); save(); toast("Стандартная таблица восстановлена"); viewSettings(); };
-window.loadBundled = () => {
-  const have = new Set(S.words.map(w=>`${w.unit}|${w.part}|${w.en}`));
-  let added = 0;
-  BUNDLED.forEach(w => { const k=`${w.u}|${w.p}|${w.en}`; if(!have.has(k)){ have.add(k); S.words.push({id:nextId(), unit:w.u, part:w.p, en:w.en, ru:w.ru}); added++; } });
-  save(); toast(`Загружено: ${added} новых слов`); go("train");
+window.delRule = function(i){ if (!confirm("Удалить правило?")) return; S.rules.splice(i,1); save(); viewSettings(); };
+window.resetRules = function(){ if (!confirm("Вернуть стандартную таблицу баллов?")) return; S.rules = DEFAULT_RULES.map(function(r){ return {min:r[0], max:r[1], points:r[2]}; }); save(); toast("Стандартная таблица восстановлена"); viewSettings(); };
+window.loadBundled = function(fromLearn){
+  var have = {}; S.words.forEach(function(w){ have[w.unit + "|" + w.part + "|" + w.en] = true; });
+  var added = 0;
+  BUNDLED.forEach(function(w){ var k = w.u + "|" + w.p + "|" + w.en; if (!have[k]){ have[k] = true; S.words.push({ id: nextId(), unit: w.u, part: w.p, en: w.en, ru: w.ru }); added++; } });
+  save(); toast("Загружено новых слов: " + added);
+  if (!fromLearn) go("words");
 };
-window.loadManual = () => {
-  const lines = $("#src-text").value.split("\n").filter(l=>l.trim());
-  let added=0, bad=0;
-  lines.forEach(l => { const m=l.split(/\s+[-–—:]\s+|\s*:\s*/); if(m.length>=2 && m[0].trim() && m.slice(1).join(" ").trim()){ S.words.push({id:nextId(), unit:"Мои", part:"", en:m[0].trim(), ru:m.slice(1).join(" ").trim()}); added++; } else bad++; });
-  save(); toast(`Добавлено: ${added}` + (bad?`, не распознано: ${bad}`:""));
+window.loadManual = function(){
+  var lines = $("#src-text").value.split("\n").filter(function(l){ return l.trim(); });
+  var added = 0, bad = 0;
+  lines.forEach(function(l){
+    var m = l.split(/\s+[-–—:]\s+|\s*:\s*/);
+    if (m.length >= 2 && m[0].trim() && m.slice(1).join(" ").trim()){ S.words.push({ id: nextId(), unit: "Мои", part: "", en: m[0].trim(), ru: m.slice(1).join(" ").trim() }); added++; }
+    else bad++;
+  });
+  save(); toast("Добавлено: " + added + (bad ? ", не распознано: " + bad : ""));
 };
-window.resetAll = () => { if(!confirm("Удалить все слова, баллы и историю в этом браузере?")) return; localStorage.removeItem(KEY); S = DEFAULT_STATE(); save(); toast("Данные очищены"); go("home"); };
 
 // ===== Маршрутизация =====
-window.go = (name) => { location.hash = name; };
-const ROUTES = { home: viewHome, train: viewTrain, words: viewWords, stats: viewStats, points: viewPoints, settings: viewSettings };
+var ROUTES = { train: viewTrain, words: viewWords, stats: viewStats, points: viewPoints, settings: viewSettings, learn: viewLearn };
 function route(){
-  const name = (location.hash || "#train").slice(1);
+  var name = (location.hash || "").slice(1);
   stopListen();
+  if (!name) { name = (S.settings.onboarded || S.words.length) ? "train" : "learn"; }
   (ROUTES[name] || viewTrain)();
 }
 window.addEventListener("hashchange", route);
